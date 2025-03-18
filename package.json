@@ -13,7 +13,7 @@
     "spacetime:deploy:cloud": "bash scripts/deploy_backend.sh"
   },
   "dependencies": {
-    "@clockworklabs/spacetimedb-typescript-sdk": "^0.1.3",
+    "@clockworklabs/spacetimedb-sdk": "^1.0.3",
     "excalibur": "^0.30.3",
     "next": "15.2.3",
     "react": "^19.0.0",
@@ -21,6 +21,7 @@
     "react-error-boundary": "^5.0.0"
   },
   "devDependencies": {
+    "@clockworklabs/spacetimedb-typescript-sdk": "^0.1.3",
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",

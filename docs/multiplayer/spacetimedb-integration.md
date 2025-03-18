@@ -10,15 +10,129 @@ SpacetimeDB is a real-time database specifically designed for multiplayer games.
 - Persistent storage for player data
 - Transactions for atomic operations
 - Real-time event subscriptions
+- Multi-column indexes for improved query performance
+- Type-safe querying support
+- Intelligent disk sync optimization
 
-## Architecture
+## Current Status: Mock Implementation with Migration Path
+
+Currently, our game is running with a mock SpacetimeDB implementation that simulates the database operations locally. This approach allows development to proceed while we work on full SpacetimeDB integration.
+
+The implementation features:
+- Complete simulation of SpacetimeDB operations in memory
+- Same data model and API surface as real SpacetimeDB
+- Clear migration path to real SpacetimeDB
+- Console indicators showing mock status: 🔶 Using mock SpacetimeDB service
+
+## Installation & Setup
+
+### 1. Install SpacetimeDB CLI
+
+```bash
+# Download and run the installer
+curl -sSf https://install.spacetimedb.com | sh
+
+# Add SpacetimeDB CLI to your PATH
+export PATH="$HOME/.local/bin:$PATH"
+
+# Verify installation
+spacetime --version
+```
+
+You should see output similar to:
+```
+spacetime Path: /Users/username/.local/share/spacetime/bin/current/spacetimedb-cli
+Commit: 4032a44686c41828ead7f59eac871c34267d4572
+spacetimedb tool version 1.0.0; spacetimedb-lib version 1.0.0;
+```
+
+To make the PATH change permanent, add it to your shell configuration file (~/.zshrc, ~/.bashrc, etc.).
+
+### 2. Start a Local SpacetimeDB Server
+
+```bash
+# Start the local SpacetimeDB server (runs on port 3000 by default)
+spacetime start
+```
+
+### 3. Configure a Server Connection
+
+```bash
+# Add a server configuration with default settings
+spacetime server add --url http://localhost:3000 --default local
+
+# If the server isn't running yet, you might need to skip the fingerprint check
+spacetime server add --url http://localhost:3000 --no-fingerprint --default local
+
+# List configured servers
+spacetime server list
+```
+
+### 4. Install SDK in Your Project
+
+```bash
+npm install @clockworklabs/spacetimedb-sdk
+```
+
+## SpacetimeDB CLI Commands
+
+Here are the key SpacetimeDB CLI commands you'll use:
+
+### Server Management
+
+```bash
+# List all server commands
+spacetime server --help
+
+# List saved server configurations
+spacetime server list
+
+# Set the default server
+spacetime server set-default <nickname>
+
+# Add a new server configuration
+spacetime server add --url <url> [--default] <nickname>
+
+# Remove a server configuration 
+spacetime server remove <nickname>
+
+# Check if a server is online
+spacetime server ping [<nickname>]
+```
+
+### Module Management
+
+```bash
+# Initialize a new module
+spacetime init <module-name>
+
+# Build a module
+spacetime build
+
+# Publish/deploy a module
+spacetime publish <module-name>
+
+# View module logs
+spacetime logs <module-name>
+
+# Call a reducer function
+spacetime call <module-name> <reducer-name> [args...]
+
+# Execute SQL query
+spacetime sql <module-name> "SELECT * FROM table"
+
+# Generate client code
+spacetime generate <module-name> --lang typescript --out ./generated
+```
+
+## Project Architecture
 
 ```
 src/
 ├── backend/                  # SpacetimeDB backend code
-│   └── schema.ts             # Database schema definition
+│   └── schema.ts            # Database schema definition with mock implementation
 ├── lib/
-│   └── spacetime.ts          # Client-side integration
+│   └── spacetime.ts         # Client-side integration
 └── components/
     └── Game/
         └── entities/
@@ -31,398 +145,228 @@ The database schema defines the data model for our game:
 
 ```typescript
 // src/backend/schema.ts
-import { Identity, ClientRequest, Table, Reducer } from '@clockworklabs/spacetimedb-typescript-sdk';
 
-// Define tables for game data
-@Table()
-export class Player {
-  @primaryKey()
-  id: string;
-  
+// User account table
+class User {
   identity: Identity;
   username: string;
-  x: number;
-  y: number;
+  createdAt: number;  // Unix timestamp
+  lastLogin: number;  // Unix timestamp
+}
+
+// Character table
+class Character {
+  id: number;
+  userIdentity: Identity;
+  name: string;
+  class: string;
+  level: number;
+  positionX: number;
+  positionY: number;
   direction: string;
-  characterType: string;
+  createdAt: number;
   lastUpdated: number;
 }
 
-@Table()
-export class GameSession {
-  @primaryKey()
-  id: string;
-  
+// Character appearance
+class CharacterAppearance {
+  characterId: number;
+  skin: string;
+  hair: string;
+  eyes: string;
+  outfit: string;
+}
+
+// Active player sessions
+class Session {
+  identity: Identity;
+  characterId: number;
+  address: Address;      // For device identification
+  connectedAt: number;
+  lastActivity: number;
+}
+
+// Auto-incrementing counter
+class Counter {
   name: string;
-  maxPlayers: number;
-  createdAt: number;
-}
-
-// Define reducers (server-side methods)
-export class GameReducers {
-  @Reducer()
-  static createPlayer(ctx: ClientRequest, username: string, characterType: string): string {
-    const playerId = generateId();
-    SpacetimeDB.insert<Player>({
-      id: playerId,
-      identity: ctx.identity,
-      username,
-      x: 0,
-      y: 0,
-      direction: 'down',
-      characterType,
-      lastUpdated: Date.now()
-    });
-    return playerId;
-  }
-  
-  @Reducer()
-  static updatePlayerPosition(ctx: ClientRequest, playerId: string, x: number, y: number, direction: string): void {
-    // Verify the player belongs to this client
-    const player = SpacetimeDB.one<Player>(p => p.id === playerId && p.identity === ctx.identity);
-    if (!player) return;
-    
-    // Update position
-    SpacetimeDB.update<Player>(
-      player => player.id === playerId,
-      player => {
-        player.x = x;
-        player.y = y;
-        player.direction = direction;
-        player.lastUpdated = Date.now();
-      }
-    );
-  }
-  
-  @Reducer()
-  static leaveGame(ctx: ClientRequest, playerId: string): void {
-    SpacetimeDB.delete<Player>(player => player.id === playerId && player.identity === ctx.identity);
-  }
+  value: number;
 }
 ```
 
-## Client Integration
+## Integration Implementation
 
-### SpacetimeDB Client Setup
-
-```typescript
-// src/lib/spacetime.ts
-import { SpacetimeDBClient, ReducerEvent } from '@clockworklabs/spacetimedb-typescript-sdk';
-import { GameEngine } from '@/components/Game/engine';
-import { RemotePlayer } from '@/components/Game/entities/RemotePlayer';
-import { EventEmitter } from 'events';
-
-export class SpacetimeManager extends EventEmitter {
-  private client: SpacetimeDBClient;
-  private engine: GameEngine;
-  private playerId: string | null = null;
-  private remotePlayers: Map<string, RemotePlayer> = new Map();
-  
-  constructor(engine: GameEngine) {
-    super();
-    this.engine = engine;
-    this.client = new SpacetimeDBClient();
-    
-    // Set up subscription handlers
-    this.setupSubscriptions();
-  }
-  
-  connect(address: string): Promise<void> {
-    return new Promise((resolve, reject) => {
-      this.client.on('connected', () => {
-        console.log('Connected to SpacetimeDB');
-        resolve();
-      });
-      
-      this.client.on('error', (err) => {
-        console.error('SpacetimeDB connection error:', err);
-        reject(err);
-      });
-      
-      this.client.connect(address);
-    });
-  }
-  
-  private setupSubscriptions() {
-    // Handle player table updates
-    this.client.subscribe<Player>((event, player) => {
-      switch (event) {
-        case ReducerEvent.Insert:
-          this.handlePlayerJoin(player);
-          break;
-        case ReducerEvent.Update:
-          this.handlePlayerUpdate(player);
-          break;
-        case ReducerEvent.Delete:
-          this.handlePlayerLeave(player);
-          break;
-      }
-    });
-  }
-  
-  private handlePlayerJoin(player: Player) {
-    // Skip our own player
-    if (player.id === this.playerId) return;
-    
-    // Create a new remote player entity
-    const remotePlayer = new RemotePlayer(player);
-    this.remotePlayers.set(player.id, remotePlayer);
-    
-    // Add to the current scene
-    const currentScene = this.engine.currentScene;
-    if (currentScene) {
-      currentScene.add(remotePlayer);
-    }
-  }
-  
-  private handlePlayerUpdate(player: Player) {
-    // Skip our own player
-    if (player.id === this.playerId) return;
-    
-    // Update existing remote player
-    const remotePlayer = this.remotePlayers.get(player.id);
-    if (remotePlayer) {
-      remotePlayer.updateFromServer(player);
-    }
-  }
-  
-  private handlePlayerLeave(player: Player) {
-    // Remove remote player
-    const remotePlayer = this.remotePlayers.get(player.id);
-    if (remotePlayer) {
-      const currentScene = this.engine.currentScene;
-      if (currentScene) {
-        currentScene.remove(remotePlayer);
-      }
-      this.remotePlayers.delete(player.id);
-    }
-  }
-  
-  // Method to register a new player
-  async registerPlayer(username: string, characterType: string): Promise<string> {
-    const playerId = await this.client.call<string>('GameReducers', 'createPlayer', [username, characterType]);
-    this.playerId = playerId;
-    return playerId;
-  }
-  
-  // Method to update player position
-  updatePlayerPosition(x: number, y: number, direction: string) {
-    if (!this.playerId) return;
-    
-    this.client.call('GameReducers', 'updatePlayerPosition', [this.playerId, x, y, direction]);
-  }
-  
-  // Method to leave the game
-  leaveGame() {
-    if (!this.playerId) return;
-    
-    this.client.call('GameReducers', 'leaveGame', [this.playerId]);
-    this.playerId = null;
-  }
-  
-  // Clean up resources
-  disconnect() {
-    this.client.disconnect();
-    this.remotePlayers.clear();
-  }
-}
-```
-
-### Integration with Player Entity
-
-The player entity needs to send position updates to SpacetimeDB:
+Our implementation provides both mock and real SpacetimeDB functionality through a consistent API that matches the current SpacetimeDB SDK:
 
 ```typescript
-// src/components/Game/entities/Player.ts
-import { Actor, Engine, Vector, Input } from 'excalibur';
-import { SpacetimeManager } from '@/lib/spacetime';
-
-export class Player extends Actor {
-  private spacetime: SpacetimeManager;
-  private lastReportedPosition: Vector;
-  private direction: string = 'down';
-  
-  constructor(spacetime: SpacetimeManager) {
-    super({
-      width: 32,
-      height: 32,
-      // ...
-    });
+// src/backend/schema.ts
+export const spacetimeDBSetup = {
+  // Connect to SpacetimeDB
+  connect: async (moduleAddress: string, onConnect?: () => void) => {
+    // Mock implementation
+    console.log(`🔶 Using mock SpacetimeDB service - would connect to ${moduleAddress}`);
     
-    this.spacetime = spacetime;
-    this.lastReportedPosition = new Vector(0, 0);
-  }
-  
-  // ... other methods ...
-  
-  onPostUpdate(engine: Engine, delta: number) {
-    // Determine current direction
-    if (this.vel.x > 0) this.direction = 'right';
-    else if (this.vel.x < 0) this.direction = 'left';
-    else if (this.vel.y > 0) this.direction = 'down';
-    else if (this.vel.y < 0) this.direction = 'up';
-    
-    // Send position updates to server if position has changed significantly
-    const positionDelta = this.pos.distance(this.lastReportedPosition);
-    if (positionDelta > 5) {
-      this.spacetime.updatePlayerPosition(this.pos.x, this.pos.y, this.direction);
-      this.lastReportedPosition = this.pos.clone();
-    }
-  }
-}
-```
-
-### Remote Player Implementation
-
-```typescript
-// src/components/Game/entities/RemotePlayer.ts
-import { Actor, Engine, Vector, Color } from 'excalibur';
-import { Player } from '@/backend/schema'; // Import from schema
-
-export class RemotePlayer extends Actor {
-  private targetPos: Vector;
-  private serverPlayer: Player;
-  private playerLabel: Label;
-  
-  constructor(serverPlayer: Player) {
-    super({
-      width: 32,
-      height: 32,
-      pos: new Vector(serverPlayer.x, serverPlayer.y),
-      color: Color.Blue,
-      // ...
-    });
-    
-    this.serverPlayer = serverPlayer;
-    this.targetPos = new Vector(serverPlayer.x, serverPlayer.y);
-    
-    // Add player label (username)
-    this.playerLabel = new Label({
-      text: serverPlayer.username,
-      pos: new Vector(0, -20),
-      font: '10px Arial',
-      color: Color.White
-    });
-    this.addChild(this.playerLabel);
-  }
-  
-  updateFromServer(updatedPlayer: Player) {
-    this.serverPlayer = updatedPlayer;
-    this.targetPos = new Vector(updatedPlayer.x, updatedPlayer.y);
-    
-    // Update animation direction based on server update
-    this.updateAnimation(updatedPlayer.direction);
-  }
-  
-  private updateAnimation(direction: string) {
-    // Switch animation based on direction
-    // ...
-  }
-  
-  onPreUpdate(engine: Engine, delta: number) {
-    // Smoothly move towards target position
-    const lerpFactor = 0.2;
-    this.pos = this.pos.lerp(this.targetPos, lerpFactor);
-  }
-}
-```
-
-## Integration with Game Component
-
-Finally, we tie everything together in the Game component:
-
-```typescript
-// src/components/Game/index.tsx (simplified with SpacetimeDB integration)
-'use client';
-
-import { useEffect, useRef } from 'react';
-import { GameEngine } from './engine';
-import { MainScene } from './scenes/MainScene';
-import { SpacetimeManager } from '@/lib/spacetime';
-
-export function Game() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const engineRef = useRef<GameEngine | null>(null);
-  const spacetimeRef = useRef<SpacetimeManager | null>(null);
-
-  useEffect(() => {
-    if (!canvasRef.current) return;
-    
-    // Initialize engine
-    const engine = new GameEngine({ 
-      canvasElement: canvasRef.current,
-      width: 800,
-      height: 600
-    });
-    
-    // Initialize SpacetimeDB connection
-    const spacetime = new SpacetimeManager(engine);
-    spacetime.connect(process.env.NEXT_PUBLIC_SPACETIME_SERVER || 'localhost:3000')
-      .then(() => {
-        // After connection, register player
-        return spacetime.registerPlayer('Player' + Math.floor(Math.random() * 1000), 'default');
+    const connection = MockDbConnection.builder()
+      .withUri('http://localhost:3000')
+      .withModuleName(moduleAddress)
+      .withToken('mock-token')
+      .onConnect((conn, identity, token) => {
+        console.log(`🔶 Mock connected with identity: ${identity.toHexString()}`);
+        if (onConnect) onConnect();
       })
-      .then((playerId) => {
-        console.log('Player registered with ID:', playerId);
-        
-        // Add main scene with player
-        const mainScene = new MainScene(spacetime);
-        engine.addScene('main', mainScene);
-        
-        // Start the engine
-        return engine.start('main');
-      })
-      .catch(err => {
-        console.error('Failed to initialize multiplayer:', err);
-      });
+      .build();
     
-    engineRef.current = engine;
-    spacetimeRef.current = spacetime;
+    return connection;
+  },
+  
+  // Query all game entities
+  subscribeToGameState: (client: MockDbConnection) => {
+    // Mock implementation
+    console.log('🔶 Mock subscription to game state');
     
-    // Cleanup on unmount
-    return () => {
-      if (spacetimeRef.current) {
-        spacetimeRef.current.leaveGame();
-        spacetimeRef.current.disconnect();
-      }
-      
-      if (engineRef.current) {
-        engineRef.current.stop();
-      }
-    };
-  }, []);
-
-  return <canvas ref={canvasRef} />;
-}
+    // Subscribe to our tables
+    client.subscriptionBuilder()
+      .subscribe('SELECT * FROM User')
+      .subscribe('SELECT * FROM Character')
+      .subscribe('SELECT * FROM CharacterAppearance')
+      .subscribe('SELECT * FROM Session');
+  }
+};
 ```
 
-## Deployment
+Our mock implementation mimics the builder pattern used by the real SpacetimeDB SDK:
 
-For development and testing:
+```typescript
+// Real SpacetimeDB client would look like this:
+import { DbConnection } from './module_bindings';
 
-1. Run a local SpacetimeDB server:
+const connection = DbConnection.builder()
+  .withUri('ws://localhost:3000')
+  .withModuleName('rpg-game-module')
+  .onConnect((connection, identity, token) => {
+    console.log('Connected to SpacetimeDB with identity:', identity.toHexString());
+    // Subscribe to tables
+    connection.subscriptionBuilder().subscribe('SELECT * FROM Character');
+  })
+  .withToken('auth-token')
+  .build();
+```
+
+## Client-Side Usage
+
+```typescript
+// In your game component
+import { spacetimeDBSetup } from '@/backend/schema';
+
+// Inside component:
+useEffect(() => {
+  const setupMultiplayer = async () => {
+    // Connect to SpacetimeDB (mock or real)
+    const client = await spacetimeDBSetup.connect('rpg-game-module');
+    
+    // Subscribe to data
+    spacetimeDBSetup.subscribeToGameState(client);
+    
+    // Ready to use client for game operations
+    setSpacetimeClient(client);
+  };
+  
+  setupMultiplayer();
+  
+  return () => {
+    // Cleanup
+    if (spacetimeClient) {
+      spacetimeClient.disconnect();
+    }
+  };
+}, []);
+```
+
+## Migration Plan to Full SpacetimeDB
+
+1. **Phase 1: Local SpacetimeDB Server (Current Focus)**
+   - Install and configure local SpacetimeDB server
+   - Generate TypeScript bindings from schema
+   - Update client code to use real SpacetimeDB connections
+
+2. **Phase 2: Schema Migration**
+   - Convert current schema to SpacetimeDB module format 
+   - Create proper indexes and relationships
+   - Deploy and test locally
+
+3. **Phase 3: Production Deployment**
+   - Deploy to SpacetimeDB Cloud
+   - Configure environment variables for production vs development
+   - Implement proper identity management
+
+## Module Development
+
+### Creating a New Module
+
+> **Important Note**: SpacetimeDB modules can only be created in Rust or C# (not TypeScript directly). You'll define your data model and reducers in one of these languages, then generate TypeScript bindings for use in your Next.js application.
+
+1. Initialize a module project using Rust (recommended):
    ```bash
-   npm run spacetime:start
+   spacetime init --lang rust rpg-game-module
+   cd rpg-game-module
    ```
 
-2. Publish the backend schema:
+   Or using C#:
    ```bash
-   npm run spacetime:deploy
+   spacetime init --lang csharp rpg-game-module
+   cd rpg-game-module
    ```
 
-3. For production, deploy to SpacetimeDB cloud:
+2. Edit the schema in `src/lib.rs` (for Rust) or `src/MyModule.cs` (for C#)
+
+3. Build the module:
    ```bash
-   npm run spacetime:deploy:cloud
+   spacetime build
    ```
+
+4. Deploy to local SpacetimeDB:
+   ```bash
+   spacetime publish rpg-game-module
+   ```
+
+5. Generate client bindings:
+   ```bash
+   spacetime generate rpg-game-module --lang typescript --out ../src/generated
+   ```
+
+## Environment Configuration
+
+```env
+# .env.local
+NEXT_PUBLIC_SPACETIME_SERVER=http://localhost:3000
+NEXT_PUBLIC_SPACETIME_MODULE=rpg-game-module
+```
 
 ## Common Troubleshooting
 
-1. **Connection Issues**: Ensure the SpacetimeDB server address is correctly set in `.env.local`.
+1. **Connection Issues**: 
+   - Verify server status: `spacetime server ping local`
+   - Check server configuration: `spacetime server list`
+   - Ensure the server is running: `spacetime start`
+   - Check if your module is deployed: `spacetime list`
 
-2. **Authentication Errors**: Check that identity tokens are correctly handled.
+2. **Authentication Errors**: 
+   - Check your identity: `spacetime login --info` 
+   - Create a new identity if needed: `spacetime login`
 
-3. **State Synchronization Lag**: Consider implementing client-side prediction and server reconciliation for smoother gameplay.
+3. **State Synchronization**: 
+   - Enable debug logging in client:
+     ```typescript
+     client.setDebugLevel('debug');
+     ```
+   - Monitor reducer logs: `spacetime logs rpg-game-module`
 
-4. **Schema Mismatch**: After schema changes, republish the backend and restart clients.
+4. **Schema Updates**:
+   - After schema changes: `spacetime publish rpg-game-module --update`
+   - Monitor build issues: `spacetime build --verbose`
 
-5. **Performance Issues**: Optimize the frequency of position updates based on game needs. 
+5. **Performance Optimization**:
+   - Use multi-column indexes for frequent queries
+   - Implement client-side prediction
+   - Optimize update frequency
+   - Monitor module performance
+``` 

@@ -1,10 +1,14 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Engine, DisplayMode, PointerScope, Color } from 'excalibur';
+import { 
+  Engine, 
+  DisplayMode, 
+  Color, 
+  PointerScope
+} from 'excalibur';
 import { GameEngine } from './engine';
 import { MainScene } from './scenes/MainScene';
-import { spacetimeService } from '@/lib/spacetime';
 import styles from './Game.module.css';
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary';
 
@@ -98,47 +102,25 @@ const Game: React.FC<GameProps> = ({
       // Create and add main scene
       const mainScene = new MainScene(engine);
       engine.addScene('main', mainScene);
-      engine.goToScene('main');
 
-      console.log("🎮 Starting game engine");
-      // Start the game
-      engine.start().then(() => {
-        console.log("🎮 Game started successfully");
-      }).catch(err => {
-        console.error("🚨 Game start error:", err);
-        setError(err);
-      });
-
-      // Store engine reference
+      // Store engine reference right away so cleanup works properly
       engineRef.current = engine;
-
-      // Position update interval - only if using SpacetimeDB
-      let positionInterval: NodeJS.Timeout | null = null;
-      try {
-        if (typeof spacetimeService !== 'undefined') {
-          console.log("🎮 Setting up position update interval");
-          positionInterval = setInterval(() => {
-            if (engine.player) {
-              const { x, y } = engine.player.pos;
-              try {
-                spacetimeService.updatePosition(x, y);
-              } catch (error) {
-                console.warn("⚠️ Failed to update position:", error);
-              }
-            }
-          }, 5000); // Update position every 5 seconds
-        }
-      } catch (e) {
-        console.warn("⚠️ SpacetimeDB service not available:", e);
-      }
+      
+      console.log("🎮 Starting game engine");
+      // Start the engine - this initializes the screen
+      engine.start().then(() => {
+        console.log("🎮 Engine started, going to main scene");
+        // Go to the main scene immediately after the engine starts
+        // Resources will load asynchronously
+        engine.goToScene('main');
+      }).catch(err => {
+        console.error("🚨 Engine start error:", err);
+        setError(err instanceof Error ? err : new Error(String(err)));
+      });
 
       // Cleanup
       return () => {
         console.log("🎮 Game Component Unmounting");
-        if (positionInterval) {
-          clearInterval(positionInterval);
-        }
-        
         if (engineRef.current) {
           console.log("🎮 Stopping game engine");
           engineRef.current.stop();

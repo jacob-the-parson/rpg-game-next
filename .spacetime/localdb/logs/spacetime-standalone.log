@@ -1,0 +1,729 @@
+[2m2025-03-18T16:52:49.203558Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/standalone/src/subcommands/start.rs[0m[2m:[0m[2m145[0m[2m:[0m Starting SpacetimeDB listening on 127.0.0.1:3000    
+[2m2025-03-18T16:54:02.035793Z[0m [34mDEBUG[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m231[0m[2m:[0m Getting validator for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T16:54:02.036070Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T16:54:02.969266Z[0m [34mDEBUG[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m301[0m[2m:[0m No key id in header. Trying all keys.    
+[2m2025-03-18T16:54:02.969695Z[0m [34mDEBUG[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m306[0m[2m:[0m Trying key 0    
+[2m2025-03-18T16:54:02.998311Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/durability/src/imp/local.rs[0m[2m:[0m[2m98[0m[2m:[0m open local durability    
+[2m2025-03-18T16:54:03.028466Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/durability/src/imp/local.rs[0m[2m:[0m[2m182[0m[2m:[0m starting persister task    
+[2m2025-03-18T16:54:03.028561Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/durability/src/imp/local.rs[0m[2m:[0m[2m257[0m[2m:[0m starting syncer task    
+[2m2025-03-18T16:54:03.029566Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/durability/src/imp/local.rs[0m[2m:[0m[2m98[0m[2m:[0m open local durability    
+[2m2025-03-18T16:54:03.034283Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/durability/src/imp/local.rs[0m[2m:[0m[2m182[0m[2m:[0m starting persister task    
+[2m2025-03-18T16:54:03.034299Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/durability/src/imp/local.rs[0m[2m:[0m[2m257[0m[2m:[0m starting syncer task    
+[2m2025-03-18T16:54:03.035489Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/core/src/db/relational_db.rs[0m[2m:[0m[2m312[0m[2m:[0m [c2007f9c16cefe6a4456ca7a49984e79b7cc39033df672a706f3066a42c1d1dd] DATABASE: durable_tx_offset is None    
+[2m2025-03-18T16:54:03.035547Z[0m [32m INFO[0m [2mcrates/core/src/db/relational_db.rs[0m[2m:[0m[2m463[0m[2m:[0m [c2007f9c16cefe6a4456ca7a49984e79b7cc39033df672a706f3066a42c1d1dd] DATABASE: no snapshot on disk    
+[2m2025-03-18T16:54:03.062360Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/core/src/db/relational_db.rs[0m[2m:[0m[2m1213[0m[2m:[0m [c2007f9c16cefe6a4456ca7a49984e79b7cc39033df672a706f3066a42c1d1dd] DATABASE: applying transaction history...    
+[2m2025-03-18T16:54:03.071036Z[0m [33m WARN[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/commitlog/src/commitlog.rs[0m[2m:[0m[2m649[0m[2m:[0m commitlog offset index is not used at segment 0: I/O error: unexpected EOF    
+[2m2025-03-18T16:54:03.071162Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/core/src/db/relational_db.rs[0m[2m:[0m[2m1247[0m[2m:[0m [c2007f9c16cefe6a4456ca7a49984e79b7cc39033df672a706f3066a42c1d1dd] DATABASE: applied transaction history    
+[2m2025-03-18T16:54:03.074901Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/core/src/db/relational_db.rs[0m[2m:[0m[2m1249[0m[2m:[0m [c2007f9c16cefe6a4456ca7a49984e79b7cc39033df672a706f3066a42c1d1dd] DATABASE: rebuilt state after replay    
+[2m2025-03-18T16:54:03.075348Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/durability/src/imp/local.rs[0m[2m:[0m[2m202[0m[2m:[0m exiting persister task    
+[2m2025-03-18T16:54:03.402697Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/core/src/host/wasm_common/module_host_actor.rs[0m[2m:[0m[2m272[0m[2m:[0m init database    
+[2m2025-03-18T16:54:03.409914Z[0m [32m INFO[0m [2mcrates/core/src/db/datastore/locking_tx_datastore/datastore.rs[0m[2m:[0m[2m263[0m[2m:[0m Capturing snapshot of database Identity(c2007f9c16cefe6a4456ca7a49984e79b7cc39033df672a706f3066a42c1d1dd) at TX offset 0    
+[2m2025-03-18T16:54:03.417714Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/snapshot/src/lib.rs[0m[2m:[0m[2m561[0m[2m:[0m [c2007f9c16cefe6a4456ca7a49984e79b7cc39033df672a706f3066a42c1d1dd] SNAPSHOT 00000000000000000000: Hardlinked 0 objects and wrote 8 objects    
+[2m2025-03-18T16:54:03.418755Z[0m [32m INFO[0m [2mcrates/core/src/db/relational_db.rs[0m[2m:[0m[2m158[0m[2m:[0m Captured snapshot of database Identity(c2007f9c16cefe6a4456ca7a49984e79b7cc39033df672a706f3066a42c1d1dd) at TX offset 0 in 8.905074ms    
+[2m2025-03-18T16:57:49.206220Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T17:02:49.215501Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T17:07:49.225438Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T17:09:02.719062Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/standalone/src/subcommands/start.rs[0m[2m:[0m[2m145[0m[2m:[0m Starting SpacetimeDB listening on 127.0.0.1:3001    
+[2m2025-03-18T17:12:40.511961Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/standalone/src/subcommands/start.rs[0m[2m:[0m[2m145[0m[2m:[0m Starting SpacetimeDB listening on 127.0.0.1:3001    
+[2m2025-03-18T17:13:02.585931Z[0m [34mDEBUG[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m231[0m[2m:[0m Getting validator for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T17:13:02.586008Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T17:13:03.313161Z[0m [34mDEBUG[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m301[0m[2m:[0m No key id in header. Trying all keys.    
+[2m2025-03-18T17:13:03.313761Z[0m [34mDEBUG[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m306[0m[2m:[0m Trying key 0    
+[2m2025-03-18T17:13:03.314786Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/durability/src/imp/local.rs[0m[2m:[0m[2m98[0m[2m:[0m open local durability    
+[2m2025-03-18T17:13:03.322563Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/durability/src/imp/local.rs[0m[2m:[0m[2m182[0m[2m:[0m starting persister task    
+[2m2025-03-18T17:13:03.322563Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/durability/src/imp/local.rs[0m[2m:[0m[2m257[0m[2m:[0m starting syncer task    
+[2m2025-03-18T17:13:03.323109Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/durability/src/imp/local.rs[0m[2m:[0m[2m98[0m[2m:[0m open local durability    
+[2m2025-03-18T17:13:03.323928Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/durability/src/imp/local.rs[0m[2m:[0m[2m257[0m[2m:[0m starting syncer task    
+[2m2025-03-18T17:13:03.323937Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/durability/src/imp/local.rs[0m[2m:[0m[2m182[0m[2m:[0m starting persister task    
+[2m2025-03-18T17:13:03.324232Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/core/src/db/relational_db.rs[0m[2m:[0m[2m312[0m[2m:[0m [c2007f9c16cefe6a4456ca7a49984e79b7cc39033df672a706f3066a42c1d1dd] DATABASE: durable_tx_offset is Some(0)    
+[2m2025-03-18T17:13:03.342101Z[0m [32m INFO[0m [2mcrates/core/src/db/relational_db.rs[0m[2m:[0m[2m439[0m[2m:[0m [c2007f9c16cefe6a4456ca7a49984e79b7cc39033df672a706f3066a42c1d1dd] DATABASE: restoring snapshot of tx_offset 0    
+[2m2025-03-18T17:13:03.359230Z[0m [32m INFO[0m [2mcrates/core/src/db/relational_db.rs[0m[2m:[0m[2m442[0m[2m:[0m [c2007f9c16cefe6a4456ca7a49984e79b7cc39033df672a706f3066a42c1d1dd] DATABASE: read snapshot of tx_offset 0 in 13.870834ms    
+[2m2025-03-18T17:13:03.362241Z[0m [32m INFO[0m [2mcrates/core/src/db/relational_db.rs[0m[2m:[0m[2m456[0m[2m:[0m [c2007f9c16cefe6a4456ca7a49984e79b7cc39033df672a706f3066a42c1d1dd] DATABASE: restored from snapshot of tx_offset 0 in 2.921085ms    
+[2m2025-03-18T17:13:03.362319Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/core/src/db/relational_db.rs[0m[2m:[0m[2m1213[0m[2m:[0m [c2007f9c16cefe6a4456ca7a49984e79b7cc39033df672a706f3066a42c1d1dd] DATABASE: applying transaction history...    
+[2m2025-03-18T17:13:03.362706Z[0m [33m WARN[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/commitlog/src/commitlog.rs[0m[2m:[0m[2m649[0m[2m:[0m commitlog offset index is not used at segment 0: I/O error: mismatch key in index offset file    
+[2m2025-03-18T17:13:03.363067Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/core/src/db/relational_db.rs[0m[2m:[0m[2m1247[0m[2m:[0m [c2007f9c16cefe6a4456ca7a49984e79b7cc39033df672a706f3066a42c1d1dd] DATABASE: applied transaction history    
+[2m2025-03-18T17:13:03.363603Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/core/src/db/relational_db.rs[0m[2m:[0m[2m1249[0m[2m:[0m [c2007f9c16cefe6a4456ca7a49984e79b7cc39033df672a706f3066a42c1d1dd] DATABASE: rebuilt state after replay    
+[2m2025-03-18T17:13:03.363709Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/durability/src/imp/local.rs[0m[2m:[0m[2m202[0m[2m:[0m exiting persister task    
+[2m2025-03-18T17:13:03.648137Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/core/src/host/host_controller.rs[0m[2m:[0m[2m644[0m[2m:[0m database `c2007f9c16cefe6a4456ca7a49984e79b7cc39033df672a706f3066a42c1d1dd` up to date with program `05af93d34be4e05e38d14a089967999a7b1eab62849a56a784f3bd5e7d8cb753`    
+[2m2025-03-18T17:13:03.653304Z[0m [34mDEBUG[0m [2mcrates/standalone/src/lib.rs[0m[2m:[0m[2m304[0m[2m:[0m Desired replica count 1 for database c2007f9c16cefe6a4456ca7a49984e79b7cc39033df672a706f3066a42c1d1dd already satisfied    
+[2m2025-03-18T17:13:29.935685Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m74[0m[2m:[0m The connection_id query parameter to the subscribe HTTP endpoint is internal and will be removed in a future version of SpacetimeDB.    
+[2m2025-03-18T17:15:38.745071Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m74[0m[2m:[0m The connection_id query parameter to the subscribe HTTP endpoint is internal and will be removed in a future version of SpacetimeDB.    
+[2m2025-03-18T17:15:45.692007Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m74[0m[2m:[0m The connection_id query parameter to the subscribe HTTP endpoint is internal and will be removed in a future version of SpacetimeDB.    
+[2m2025-03-18T17:15:45.695421Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m144[0m[2m:[0m New client connected from unknown ip    
+[2m2025-03-18T17:15:45.708594Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m14[0m[2m:[0m reducer "identity_connected" runtime error: error while executing at wasm backtrace:
+    0: 0x1a1e1 - spacetime_module.wasm!__rust_start_panic
+    1: 0x1a1ad - spacetime_module.wasm!rust_panic
+    2: 0x1a19e - spacetime_module.wasm!std::panicking::rust_panic_with_hook::hb39abb160cd4038c
+    3: 0x196dc - spacetime_module.wasm!std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b
+    4: 0x19616 - spacetime_module.wasm!std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b
+    5: 0x19d33 - spacetime_module.wasm!rust_begin_unwind
+    6: 0x1ae53 - spacetime_module.wasm!core::panicking::panic_fmt::h6f4dae69dcc1a6d2
+    7: 0x194af - spacetime_module.wasm!std::time::SystemTime::now::hf23f9aaf43021bfe
+    8:  0xdbb - spacetime_module.wasm!<Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13
+    9: 0x580e - spacetime_module.wasm!spacetime_module::identity_connected::invoke::he407f3469108ff22
+   10: 0x12017 - spacetime_module.wasm!__call_reducer__    
+[2m2025-03-18T17:15:45.712695Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #11: __rust_start_panic    
+[2m2025-03-18T17:15:45.712735Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #10: rust_panic    
+[2m2025-03-18T17:15:45.712772Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #9: std::panicking::rust_panic_with_hook::hb39abb160cd4038c    
+[2m2025-03-18T17:15:45.712794Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #8: std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b    
+[2m2025-03-18T17:15:45.712822Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #7: std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b    
+[2m2025-03-18T17:15:45.712899Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #6: rust_begin_unwind    
+[2m2025-03-18T17:15:45.712920Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #5: core::panicking::panic_fmt::h6f4dae69dcc1a6d2    
+[2m2025-03-18T17:15:45.712934Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #4: std::time::SystemTime::now::hf23f9aaf43021bfe    
+[2m2025-03-18T17:15:45.712946Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #3: <Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13    
+[2m2025-03-18T17:15:45.712960Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #2: spacetime_module::identity_connected::invoke::he407f3469108ff22    
+[2m2025-03-18T17:15:45.712973Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #1: __call_reducer__    
+[2m2025-03-18T17:15:53.375622Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m408[0m[2m:[0m Client connection ended    
+[2m2025-03-18T17:15:54.106602Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m74[0m[2m:[0m The connection_id query parameter to the subscribe HTTP endpoint is internal and will be removed in a future version of SpacetimeDB.    
+[2m2025-03-18T17:15:54.108567Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m144[0m[2m:[0m New client connected from unknown ip    
+[2m2025-03-18T17:15:54.116844Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m14[0m[2m:[0m reducer "identity_connected" runtime error: error while executing at wasm backtrace:
+    0: 0x1a1e1 - spacetime_module.wasm!__rust_start_panic
+    1: 0x1a1ad - spacetime_module.wasm!rust_panic
+    2: 0x1a19e - spacetime_module.wasm!std::panicking::rust_panic_with_hook::hb39abb160cd4038c
+    3: 0x196dc - spacetime_module.wasm!std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b
+    4: 0x19616 - spacetime_module.wasm!std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b
+    5: 0x19d33 - spacetime_module.wasm!rust_begin_unwind
+    6: 0x1ae53 - spacetime_module.wasm!core::panicking::panic_fmt::h6f4dae69dcc1a6d2
+    7: 0x194af - spacetime_module.wasm!std::time::SystemTime::now::hf23f9aaf43021bfe
+    8:  0xdbb - spacetime_module.wasm!<Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13
+    9: 0x580e - spacetime_module.wasm!spacetime_module::identity_connected::invoke::he407f3469108ff22
+   10: 0x12017 - spacetime_module.wasm!__call_reducer__    
+[2m2025-03-18T17:15:54.117095Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #11: __rust_start_panic    
+[2m2025-03-18T17:15:54.117169Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #10: rust_panic    
+[2m2025-03-18T17:15:54.117192Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #9: std::panicking::rust_panic_with_hook::hb39abb160cd4038c    
+[2m2025-03-18T17:15:54.117207Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #8: std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b    
+[2m2025-03-18T17:15:54.117220Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #7: std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b    
+[2m2025-03-18T17:15:54.117233Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #6: rust_begin_unwind    
+[2m2025-03-18T17:15:54.117244Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #5: core::panicking::panic_fmt::h6f4dae69dcc1a6d2    
+[2m2025-03-18T17:15:54.117438Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #4: std::time::SystemTime::now::hf23f9aaf43021bfe    
+[2m2025-03-18T17:15:54.117456Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #3: <Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13    
+[2m2025-03-18T17:15:54.117470Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #2: spacetime_module::identity_connected::invoke::he407f3469108ff22    
+[2m2025-03-18T17:15:54.117483Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #1: __call_reducer__    
+[2m2025-03-18T17:16:06.547245Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m408[0m[2m:[0m Client connection ended    
+[2m2025-03-18T17:16:07.343535Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m74[0m[2m:[0m The connection_id query parameter to the subscribe HTTP endpoint is internal and will be removed in a future version of SpacetimeDB.    
+[2m2025-03-18T17:16:07.343829Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m144[0m[2m:[0m New client connected from unknown ip    
+[2m2025-03-18T17:16:07.344597Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m14[0m[2m:[0m reducer "identity_connected" runtime error: error while executing at wasm backtrace:
+    0: 0x1a1e1 - spacetime_module.wasm!__rust_start_panic
+    1: 0x1a1ad - spacetime_module.wasm!rust_panic
+    2: 0x1a19e - spacetime_module.wasm!std::panicking::rust_panic_with_hook::hb39abb160cd4038c
+    3: 0x196dc - spacetime_module.wasm!std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b
+    4: 0x19616 - spacetime_module.wasm!std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b
+    5: 0x19d33 - spacetime_module.wasm!rust_begin_unwind
+    6: 0x1ae53 - spacetime_module.wasm!core::panicking::panic_fmt::h6f4dae69dcc1a6d2
+    7: 0x194af - spacetime_module.wasm!std::time::SystemTime::now::hf23f9aaf43021bfe
+    8:  0xdbb - spacetime_module.wasm!<Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13
+    9: 0x580e - spacetime_module.wasm!spacetime_module::identity_connected::invoke::he407f3469108ff22
+   10: 0x12017 - spacetime_module.wasm!__call_reducer__    
+[2m2025-03-18T17:16:07.344707Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #11: __rust_start_panic    
+[2m2025-03-18T17:16:07.344721Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #10: rust_panic    
+[2m2025-03-18T17:16:07.344730Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #9: std::panicking::rust_panic_with_hook::hb39abb160cd4038c    
+[2m2025-03-18T17:16:07.344738Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #8: std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b    
+[2m2025-03-18T17:16:07.344746Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #7: std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b    
+[2m2025-03-18T17:16:07.344829Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #6: rust_begin_unwind    
+[2m2025-03-18T17:16:07.344849Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #5: core::panicking::panic_fmt::h6f4dae69dcc1a6d2    
+[2m2025-03-18T17:16:07.344860Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #4: std::time::SystemTime::now::hf23f9aaf43021bfe    
+[2m2025-03-18T17:16:07.344873Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #3: <Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13    
+[2m2025-03-18T17:16:07.344886Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #2: spacetime_module::identity_connected::invoke::he407f3469108ff22    
+[2m2025-03-18T17:16:07.344899Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #1: __call_reducer__    
+[2m2025-03-18T17:17:40.521789Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T17:18:35.879407Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/standalone/src/subcommands/start.rs[0m[2m:[0m[2m145[0m[2m:[0m Starting SpacetimeDB listening on 127.0.0.1:3001    
+[2m2025-03-18T17:18:41.750051Z[0m [34mDEBUG[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m231[0m[2m:[0m Getting validator for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T17:18:41.750165Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T17:18:42.365378Z[0m [34mDEBUG[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m301[0m[2m:[0m No key id in header. Trying all keys.    
+[2m2025-03-18T17:18:42.365728Z[0m [34mDEBUG[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m306[0m[2m:[0m Trying key 0    
+[2m2025-03-18T17:18:42.366933Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/durability/src/imp/local.rs[0m[2m:[0m[2m98[0m[2m:[0m open local durability    
+[2m2025-03-18T17:18:42.368262Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/durability/src/imp/local.rs[0m[2m:[0m[2m257[0m[2m:[0m starting syncer task    
+[2m2025-03-18T17:18:42.368268Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/durability/src/imp/local.rs[0m[2m:[0m[2m182[0m[2m:[0m starting persister task    
+[2m2025-03-18T17:18:42.368529Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/durability/src/imp/local.rs[0m[2m:[0m[2m98[0m[2m:[0m open local durability    
+[2m2025-03-18T17:18:42.369175Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/durability/src/imp/local.rs[0m[2m:[0m[2m182[0m[2m:[0m starting persister task    
+[2m2025-03-18T17:18:42.369215Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/durability/src/imp/local.rs[0m[2m:[0m[2m257[0m[2m:[0m starting syncer task    
+[2m2025-03-18T17:18:42.369356Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/core/src/db/relational_db.rs[0m[2m:[0m[2m312[0m[2m:[0m [c2007f9c16cefe6a4456ca7a49984e79b7cc39033df672a706f3066a42c1d1dd] DATABASE: durable_tx_offset is Some(0)    
+[2m2025-03-18T17:18:42.369526Z[0m [32m INFO[0m [2mcrates/core/src/db/relational_db.rs[0m[2m:[0m[2m439[0m[2m:[0m [c2007f9c16cefe6a4456ca7a49984e79b7cc39033df672a706f3066a42c1d1dd] DATABASE: restoring snapshot of tx_offset 0    
+[2m2025-03-18T17:18:42.387418Z[0m [32m INFO[0m [2mcrates/core/src/db/relational_db.rs[0m[2m:[0m[2m442[0m[2m:[0m [c2007f9c16cefe6a4456ca7a49984e79b7cc39033df672a706f3066a42c1d1dd] DATABASE: read snapshot of tx_offset 0 in 17.858993ms    
+[2m2025-03-18T17:18:42.391164Z[0m [32m INFO[0m [2mcrates/core/src/db/relational_db.rs[0m[2m:[0m[2m456[0m[2m:[0m [c2007f9c16cefe6a4456ca7a49984e79b7cc39033df672a706f3066a42c1d1dd] DATABASE: restored from snapshot of tx_offset 0 in 3.669378ms    
+[2m2025-03-18T17:18:42.391216Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/core/src/db/relational_db.rs[0m[2m:[0m[2m1213[0m[2m:[0m [c2007f9c16cefe6a4456ca7a49984e79b7cc39033df672a706f3066a42c1d1dd] DATABASE: applying transaction history...    
+[2m2025-03-18T17:18:42.391418Z[0m [33m WARN[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/commitlog/src/commitlog.rs[0m[2m:[0m[2m649[0m[2m:[0m commitlog offset index is not used at segment 0: I/O error: mismatch key in index offset file    
+[2m2025-03-18T17:18:42.391685Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/core/src/db/relational_db.rs[0m[2m:[0m[2m1247[0m[2m:[0m [c2007f9c16cefe6a4456ca7a49984e79b7cc39033df672a706f3066a42c1d1dd] DATABASE: applied transaction history    
+[2m2025-03-18T17:18:42.392338Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/core/src/db/relational_db.rs[0m[2m:[0m[2m1249[0m[2m:[0m [c2007f9c16cefe6a4456ca7a49984e79b7cc39033df672a706f3066a42c1d1dd] DATABASE: rebuilt state after replay    
+[2m2025-03-18T17:18:42.392558Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/durability/src/imp/local.rs[0m[2m:[0m[2m202[0m[2m:[0m exiting persister task    
+[2m2025-03-18T17:18:42.733787Z[0m [32m INFO[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/core/src/host/host_controller.rs[0m[2m:[0m[2m644[0m[2m:[0m database `c2007f9c16cefe6a4456ca7a49984e79b7cc39033df672a706f3066a42c1d1dd` up to date with program `05af93d34be4e05e38d14a089967999a7b1eab62849a56a784f3bd5e7d8cb753`    
+[2m2025-03-18T17:18:42.734666Z[0m [34mDEBUG[0m [2mcrates/standalone/src/lib.rs[0m[2m:[0m[2m304[0m[2m:[0m Desired replica count 1 for database c2007f9c16cefe6a4456ca7a49984e79b7cc39033df672a706f3066a42c1d1dd already satisfied    
+[2m2025-03-18T17:19:30.354968Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m74[0m[2m:[0m The connection_id query parameter to the subscribe HTTP endpoint is internal and will be removed in a future version of SpacetimeDB.    
+[2m2025-03-18T17:19:30.355932Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m144[0m[2m:[0m New client connected from unknown ip    
+[2m2025-03-18T17:19:30.357559Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m14[0m[2m:[0m reducer "identity_connected" runtime error: error while executing at wasm backtrace:
+    0: 0x1a1e1 - spacetime_module.wasm!__rust_start_panic
+    1: 0x1a1ad - spacetime_module.wasm!rust_panic
+    2: 0x1a19e - spacetime_module.wasm!std::panicking::rust_panic_with_hook::hb39abb160cd4038c
+    3: 0x196dc - spacetime_module.wasm!std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b
+    4: 0x19616 - spacetime_module.wasm!std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b
+    5: 0x19d33 - spacetime_module.wasm!rust_begin_unwind
+    6: 0x1ae53 - spacetime_module.wasm!core::panicking::panic_fmt::h6f4dae69dcc1a6d2
+    7: 0x194af - spacetime_module.wasm!std::time::SystemTime::now::hf23f9aaf43021bfe
+    8:  0xdbb - spacetime_module.wasm!<Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13
+    9: 0x580e - spacetime_module.wasm!spacetime_module::identity_connected::invoke::he407f3469108ff22
+   10: 0x12017 - spacetime_module.wasm!__call_reducer__    
+[2m2025-03-18T17:19:30.358050Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #11: __rust_start_panic    
+[2m2025-03-18T17:19:30.358065Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #10: rust_panic    
+[2m2025-03-18T17:19:30.358074Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #9: std::panicking::rust_panic_with_hook::hb39abb160cd4038c    
+[2m2025-03-18T17:19:30.358083Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #8: std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b    
+[2m2025-03-18T17:19:30.358091Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #7: std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b    
+[2m2025-03-18T17:19:30.358309Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #6: rust_begin_unwind    
+[2m2025-03-18T17:19:30.358345Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #5: core::panicking::panic_fmt::h6f4dae69dcc1a6d2    
+[2m2025-03-18T17:19:30.358384Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #4: std::time::SystemTime::now::hf23f9aaf43021bfe    
+[2m2025-03-18T17:19:30.358410Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #3: <Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13    
+[2m2025-03-18T17:19:30.358427Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #2: spacetime_module::identity_connected::invoke::he407f3469108ff22    
+[2m2025-03-18T17:19:30.358439Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #1: __call_reducer__    
+[2m2025-03-18T17:19:40.089279Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m408[0m[2m:[0m Client connection ended    
+[2m2025-03-18T17:19:41.092624Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m74[0m[2m:[0m The connection_id query parameter to the subscribe HTTP endpoint is internal and will be removed in a future version of SpacetimeDB.    
+[2m2025-03-18T17:19:41.093354Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m144[0m[2m:[0m New client connected from unknown ip    
+[2m2025-03-18T17:19:41.094939Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m14[0m[2m:[0m reducer "identity_connected" runtime error: error while executing at wasm backtrace:
+    0: 0x1a1e1 - spacetime_module.wasm!__rust_start_panic
+    1: 0x1a1ad - spacetime_module.wasm!rust_panic
+    2: 0x1a19e - spacetime_module.wasm!std::panicking::rust_panic_with_hook::hb39abb160cd4038c
+    3: 0x196dc - spacetime_module.wasm!std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b
+    4: 0x19616 - spacetime_module.wasm!std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b
+    5: 0x19d33 - spacetime_module.wasm!rust_begin_unwind
+    6: 0x1ae53 - spacetime_module.wasm!core::panicking::panic_fmt::h6f4dae69dcc1a6d2
+    7: 0x194af - spacetime_module.wasm!std::time::SystemTime::now::hf23f9aaf43021bfe
+    8:  0xdbb - spacetime_module.wasm!<Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13
+    9: 0x580e - spacetime_module.wasm!spacetime_module::identity_connected::invoke::he407f3469108ff22
+   10: 0x12017 - spacetime_module.wasm!__call_reducer__    
+[2m2025-03-18T17:19:41.097814Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #11: __rust_start_panic    
+[2m2025-03-18T17:19:41.097847Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #10: rust_panic    
+[2m2025-03-18T17:19:41.097862Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #9: std::panicking::rust_panic_with_hook::hb39abb160cd4038c    
+[2m2025-03-18T17:19:41.097877Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #8: std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b    
+[2m2025-03-18T17:19:41.098162Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #7: std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b    
+[2m2025-03-18T17:19:41.098342Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #6: rust_begin_unwind    
+[2m2025-03-18T17:19:41.098463Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #5: core::panicking::panic_fmt::h6f4dae69dcc1a6d2    
+[2m2025-03-18T17:19:41.098547Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #4: std::time::SystemTime::now::hf23f9aaf43021bfe    
+[2m2025-03-18T17:19:41.098723Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #3: <Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13    
+[2m2025-03-18T17:19:41.098784Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #2: spacetime_module::identity_connected::invoke::he407f3469108ff22    
+[2m2025-03-18T17:19:41.098867Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #1: __call_reducer__    
+[2m2025-03-18T17:20:19.489417Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m408[0m[2m:[0m Client connection ended    
+[2m2025-03-18T17:20:20.475394Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m74[0m[2m:[0m The connection_id query parameter to the subscribe HTTP endpoint is internal and will be removed in a future version of SpacetimeDB.    
+[2m2025-03-18T17:20:20.476353Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m144[0m[2m:[0m New client connected from unknown ip    
+[2m2025-03-18T17:20:20.477027Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m14[0m[2m:[0m reducer "identity_connected" runtime error: error while executing at wasm backtrace:
+    0: 0x1a1e1 - spacetime_module.wasm!__rust_start_panic
+    1: 0x1a1ad - spacetime_module.wasm!rust_panic
+    2: 0x1a19e - spacetime_module.wasm!std::panicking::rust_panic_with_hook::hb39abb160cd4038c
+    3: 0x196dc - spacetime_module.wasm!std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b
+    4: 0x19616 - spacetime_module.wasm!std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b
+    5: 0x19d33 - spacetime_module.wasm!rust_begin_unwind
+    6: 0x1ae53 - spacetime_module.wasm!core::panicking::panic_fmt::h6f4dae69dcc1a6d2
+    7: 0x194af - spacetime_module.wasm!std::time::SystemTime::now::hf23f9aaf43021bfe
+    8:  0xdbb - spacetime_module.wasm!<Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13
+    9: 0x580e - spacetime_module.wasm!spacetime_module::identity_connected::invoke::he407f3469108ff22
+   10: 0x12017 - spacetime_module.wasm!__call_reducer__    
+[2m2025-03-18T17:20:20.477242Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #11: __rust_start_panic    
+[2m2025-03-18T17:20:20.477286Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #10: rust_panic    
+[2m2025-03-18T17:20:20.477304Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #9: std::panicking::rust_panic_with_hook::hb39abb160cd4038c    
+[2m2025-03-18T17:20:20.477321Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #8: std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b    
+[2m2025-03-18T17:20:20.477337Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #7: std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b    
+[2m2025-03-18T17:20:20.477352Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #6: rust_begin_unwind    
+[2m2025-03-18T17:20:20.477364Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #5: core::panicking::panic_fmt::h6f4dae69dcc1a6d2    
+[2m2025-03-18T17:20:20.477418Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #4: std::time::SystemTime::now::hf23f9aaf43021bfe    
+[2m2025-03-18T17:20:20.477447Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #3: <Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13    
+[2m2025-03-18T17:20:20.477497Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #2: spacetime_module::identity_connected::invoke::he407f3469108ff22    
+[2m2025-03-18T17:20:20.477519Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #1: __call_reducer__    
+[2m2025-03-18T17:20:30.167693Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m408[0m[2m:[0m Client connection ended    
+[2m2025-03-18T17:20:31.157528Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m74[0m[2m:[0m The connection_id query parameter to the subscribe HTTP endpoint is internal and will be removed in a future version of SpacetimeDB.    
+[2m2025-03-18T17:20:31.158412Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m144[0m[2m:[0m New client connected from unknown ip    
+[2m2025-03-18T17:20:31.160060Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m14[0m[2m:[0m reducer "identity_connected" runtime error: error while executing at wasm backtrace:
+    0: 0x1a1e1 - spacetime_module.wasm!__rust_start_panic
+    1: 0x1a1ad - spacetime_module.wasm!rust_panic
+    2: 0x1a19e - spacetime_module.wasm!std::panicking::rust_panic_with_hook::hb39abb160cd4038c
+    3: 0x196dc - spacetime_module.wasm!std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b
+    4: 0x19616 - spacetime_module.wasm!std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b
+    5: 0x19d33 - spacetime_module.wasm!rust_begin_unwind
+    6: 0x1ae53 - spacetime_module.wasm!core::panicking::panic_fmt::h6f4dae69dcc1a6d2
+    7: 0x194af - spacetime_module.wasm!std::time::SystemTime::now::hf23f9aaf43021bfe
+    8:  0xdbb - spacetime_module.wasm!<Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13
+    9: 0x580e - spacetime_module.wasm!spacetime_module::identity_connected::invoke::he407f3469108ff22
+   10: 0x12017 - spacetime_module.wasm!__call_reducer__    
+[2m2025-03-18T17:20:31.162878Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #11: __rust_start_panic    
+[2m2025-03-18T17:20:31.162937Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #10: rust_panic    
+[2m2025-03-18T17:20:31.162952Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #9: std::panicking::rust_panic_with_hook::hb39abb160cd4038c    
+[2m2025-03-18T17:20:31.162967Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #8: std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b    
+[2m2025-03-18T17:20:31.162980Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #7: std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b    
+[2m2025-03-18T17:20:31.162991Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #6: rust_begin_unwind    
+[2m2025-03-18T17:20:31.163007Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #5: core::panicking::panic_fmt::h6f4dae69dcc1a6d2    
+[2m2025-03-18T17:20:31.163025Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #4: std::time::SystemTime::now::hf23f9aaf43021bfe    
+[2m2025-03-18T17:20:31.163037Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #3: <Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13    
+[2m2025-03-18T17:20:31.163051Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #2: spacetime_module::identity_connected::invoke::he407f3469108ff22    
+[2m2025-03-18T17:20:31.163063Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #1: __call_reducer__    
+[2m2025-03-18T17:22:09.981922Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m14[0m[2m:[0m reducer "register_user" runtime error: error while executing at wasm backtrace:
+    0: 0x1a1e1 - spacetime_module.wasm!__rust_start_panic
+    1: 0x1a1ad - spacetime_module.wasm!rust_panic
+    2: 0x1a19e - spacetime_module.wasm!std::panicking::rust_panic_with_hook::hb39abb160cd4038c
+    3: 0x196dc - spacetime_module.wasm!std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b
+    4: 0x19616 - spacetime_module.wasm!std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b
+    5: 0x19d33 - spacetime_module.wasm!rust_begin_unwind
+    6: 0x1ae53 - spacetime_module.wasm!core::panicking::panic_fmt::h6f4dae69dcc1a6d2
+    7: 0x194af - spacetime_module.wasm!std::time::SystemTime::now::hf23f9aaf43021bfe
+    8: 0x1e86 - spacetime_module.wasm!<Func as spacetimedb::rt::Reducer<(AF,)>>::invoke::h19420faccd850d69
+    9: 0x5b06 - spacetime_module.wasm!spacetime_module::register_user::invoke::h0a041b115e5fa48f
+   10: 0x11e66 - spacetime_module.wasm!__call_reducer__    
+[2m2025-03-18T17:22:09.983716Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #11: __rust_start_panic    
+[2m2025-03-18T17:22:09.983754Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #10: rust_panic    
+[2m2025-03-18T17:22:09.983767Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #9: std::panicking::rust_panic_with_hook::hb39abb160cd4038c    
+[2m2025-03-18T17:22:09.983790Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #8: std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b    
+[2m2025-03-18T17:22:09.983799Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #7: std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b    
+[2m2025-03-18T17:22:09.983807Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #6: rust_begin_unwind    
+[2m2025-03-18T17:22:09.983814Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #5: core::panicking::panic_fmt::h6f4dae69dcc1a6d2    
+[2m2025-03-18T17:22:09.983822Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #4: std::time::SystemTime::now::hf23f9aaf43021bfe    
+[2m2025-03-18T17:22:09.983835Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #3: <Func as spacetimedb::rt::Reducer<(AF,)>>::invoke::h19420faccd850d69    
+[2m2025-03-18T17:22:09.983858Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #2: spacetime_module::register_user::invoke::h0a041b115e5fa48f    
+[2m2025-03-18T17:22:09.983870Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #1: __call_reducer__    
+[2m2025-03-18T17:22:22.528625Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m14[0m[2m:[0m reducer "register_user" runtime error: error while executing at wasm backtrace:
+    0: 0x1a1e1 - spacetime_module.wasm!__rust_start_panic
+    1: 0x1a1ad - spacetime_module.wasm!rust_panic
+    2: 0x1a19e - spacetime_module.wasm!std::panicking::rust_panic_with_hook::hb39abb160cd4038c
+    3: 0x196dc - spacetime_module.wasm!std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b
+    4: 0x19616 - spacetime_module.wasm!std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b
+    5: 0x19d33 - spacetime_module.wasm!rust_begin_unwind
+    6: 0x1ae53 - spacetime_module.wasm!core::panicking::panic_fmt::h6f4dae69dcc1a6d2
+    7: 0x194af - spacetime_module.wasm!std::time::SystemTime::now::hf23f9aaf43021bfe
+    8: 0x1e86 - spacetime_module.wasm!<Func as spacetimedb::rt::Reducer<(AF,)>>::invoke::h19420faccd850d69
+    9: 0x5b06 - spacetime_module.wasm!spacetime_module::register_user::invoke::h0a041b115e5fa48f
+   10: 0x11e66 - spacetime_module.wasm!__call_reducer__    
+[2m2025-03-18T17:22:22.528979Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #11: __rust_start_panic    
+[2m2025-03-18T17:22:22.529048Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #10: rust_panic    
+[2m2025-03-18T17:22:22.529108Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #9: std::panicking::rust_panic_with_hook::hb39abb160cd4038c    
+[2m2025-03-18T17:22:22.529216Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #8: std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b    
+[2m2025-03-18T17:22:22.529322Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #7: std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b    
+[2m2025-03-18T17:22:22.529383Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #6: rust_begin_unwind    
+[2m2025-03-18T17:22:22.529444Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #5: core::panicking::panic_fmt::h6f4dae69dcc1a6d2    
+[2m2025-03-18T17:22:22.529536Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #4: std::time::SystemTime::now::hf23f9aaf43021bfe    
+[2m2025-03-18T17:22:22.529557Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #3: <Func as spacetimedb::rt::Reducer<(AF,)>>::invoke::h19420faccd850d69    
+[2m2025-03-18T17:22:22.529651Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #2: spacetime_module::register_user::invoke::h0a041b115e5fa48f    
+[2m2025-03-18T17:22:22.529709Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #1: __call_reducer__    
+[2m2025-03-18T17:22:27.432800Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m14[0m[2m:[0m reducer "register_user" runtime error: error while executing at wasm backtrace:
+    0: 0x1a1e1 - spacetime_module.wasm!__rust_start_panic
+    1: 0x1a1ad - spacetime_module.wasm!rust_panic
+    2: 0x1a19e - spacetime_module.wasm!std::panicking::rust_panic_with_hook::hb39abb160cd4038c
+    3: 0x196dc - spacetime_module.wasm!std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b
+    4: 0x19616 - spacetime_module.wasm!std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b
+    5: 0x19d33 - spacetime_module.wasm!rust_begin_unwind
+    6: 0x1ae53 - spacetime_module.wasm!core::panicking::panic_fmt::h6f4dae69dcc1a6d2
+    7: 0x194af - spacetime_module.wasm!std::time::SystemTime::now::hf23f9aaf43021bfe
+    8: 0x1e86 - spacetime_module.wasm!<Func as spacetimedb::rt::Reducer<(AF,)>>::invoke::h19420faccd850d69
+    9: 0x5b06 - spacetime_module.wasm!spacetime_module::register_user::invoke::h0a041b115e5fa48f
+   10: 0x11e66 - spacetime_module.wasm!__call_reducer__    
+[2m2025-03-18T17:22:27.433122Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #11: __rust_start_panic    
+[2m2025-03-18T17:22:27.433187Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #10: rust_panic    
+[2m2025-03-18T17:22:27.433242Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #9: std::panicking::rust_panic_with_hook::hb39abb160cd4038c    
+[2m2025-03-18T17:22:27.433300Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #8: std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b    
+[2m2025-03-18T17:22:27.433355Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #7: std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b    
+[2m2025-03-18T17:22:27.433447Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #6: rust_begin_unwind    
+[2m2025-03-18T17:22:27.434743Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #5: core::panicking::panic_fmt::h6f4dae69dcc1a6d2    
+[2m2025-03-18T17:22:27.434889Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #4: std::time::SystemTime::now::hf23f9aaf43021bfe    
+[2m2025-03-18T17:22:27.435015Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #3: <Func as spacetimedb::rt::Reducer<(AF,)>>::invoke::h19420faccd850d69    
+[2m2025-03-18T17:22:27.458724Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #2: spacetime_module::register_user::invoke::h0a041b115e5fa48f    
+[2m2025-03-18T17:22:27.458779Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #1: __call_reducer__    
+[2m2025-03-18T17:22:28.045081Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m14[0m[2m:[0m reducer "register_user" runtime error: error while executing at wasm backtrace:
+    0: 0x1a1e1 - spacetime_module.wasm!__rust_start_panic
+    1: 0x1a1ad - spacetime_module.wasm!rust_panic
+    2: 0x1a19e - spacetime_module.wasm!std::panicking::rust_panic_with_hook::hb39abb160cd4038c
+    3: 0x196dc - spacetime_module.wasm!std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b
+    4: 0x19616 - spacetime_module.wasm!std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b
+    5: 0x19d33 - spacetime_module.wasm!rust_begin_unwind
+    6: 0x1ae53 - spacetime_module.wasm!core::panicking::panic_fmt::h6f4dae69dcc1a6d2
+    7: 0x194af - spacetime_module.wasm!std::time::SystemTime::now::hf23f9aaf43021bfe
+    8: 0x1e86 - spacetime_module.wasm!<Func as spacetimedb::rt::Reducer<(AF,)>>::invoke::h19420faccd850d69
+    9: 0x5b06 - spacetime_module.wasm!spacetime_module::register_user::invoke::h0a041b115e5fa48f
+   10: 0x11e66 - spacetime_module.wasm!__call_reducer__    
+[2m2025-03-18T17:22:28.045396Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #11: __rust_start_panic    
+[2m2025-03-18T17:22:28.045459Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #10: rust_panic    
+[2m2025-03-18T17:22:28.045513Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #9: std::panicking::rust_panic_with_hook::hb39abb160cd4038c    
+[2m2025-03-18T17:22:28.045606Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #8: std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b    
+[2m2025-03-18T17:22:28.045702Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #7: std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b    
+[2m2025-03-18T17:22:28.045759Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #6: rust_begin_unwind    
+[2m2025-03-18T17:22:28.045818Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #5: core::panicking::panic_fmt::h6f4dae69dcc1a6d2    
+[2m2025-03-18T17:22:28.045882Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #4: std::time::SystemTime::now::hf23f9aaf43021bfe    
+[2m2025-03-18T17:22:28.045960Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #3: <Func as spacetimedb::rt::Reducer<(AF,)>>::invoke::h19420faccd850d69    
+[2m2025-03-18T17:22:28.046019Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #2: spacetime_module::register_user::invoke::h0a041b115e5fa48f    
+[2m2025-03-18T17:22:28.046085Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #1: __call_reducer__    
+[2m2025-03-18T17:23:35.887164Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T17:25:26.418788Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m408[0m[2m:[0m Client connection ended    
+[2m2025-03-18T17:25:27.547325Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m74[0m[2m:[0m The connection_id query parameter to the subscribe HTTP endpoint is internal and will be removed in a future version of SpacetimeDB.    
+[2m2025-03-18T17:25:27.547727Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m144[0m[2m:[0m New client connected from unknown ip    
+[2m2025-03-18T17:25:27.548798Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m14[0m[2m:[0m reducer "identity_connected" runtime error: error while executing at wasm backtrace:
+    0: 0x1a1e1 - spacetime_module.wasm!__rust_start_panic
+    1: 0x1a1ad - spacetime_module.wasm!rust_panic
+    2: 0x1a19e - spacetime_module.wasm!std::panicking::rust_panic_with_hook::hb39abb160cd4038c
+    3: 0x196dc - spacetime_module.wasm!std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b
+    4: 0x19616 - spacetime_module.wasm!std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b
+    5: 0x19d33 - spacetime_module.wasm!rust_begin_unwind
+    6: 0x1ae53 - spacetime_module.wasm!core::panicking::panic_fmt::h6f4dae69dcc1a6d2
+    7: 0x194af - spacetime_module.wasm!std::time::SystemTime::now::hf23f9aaf43021bfe
+    8:  0xdbb - spacetime_module.wasm!<Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13
+    9: 0x580e - spacetime_module.wasm!spacetime_module::identity_connected::invoke::he407f3469108ff22
+   10: 0x12017 - spacetime_module.wasm!__call_reducer__    
+[2m2025-03-18T17:25:27.548920Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #11: __rust_start_panic    
+[2m2025-03-18T17:25:27.548935Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #10: rust_panic    
+[2m2025-03-18T17:25:27.548977Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #9: std::panicking::rust_panic_with_hook::hb39abb160cd4038c    
+[2m2025-03-18T17:25:27.548991Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #8: std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b    
+[2m2025-03-18T17:25:27.549030Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #7: std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b    
+[2m2025-03-18T17:25:27.549047Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #6: rust_begin_unwind    
+[2m2025-03-18T17:25:27.549059Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #5: core::panicking::panic_fmt::h6f4dae69dcc1a6d2    
+[2m2025-03-18T17:25:27.549072Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #4: std::time::SystemTime::now::hf23f9aaf43021bfe    
+[2m2025-03-18T17:25:27.549157Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #3: <Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13    
+[2m2025-03-18T17:25:27.549251Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #2: spacetime_module::identity_connected::invoke::he407f3469108ff22    
+[2m2025-03-18T17:25:27.549298Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #1: __call_reducer__    
+[2m2025-03-18T17:25:36.801844Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m14[0m[2m:[0m reducer "register_user" runtime error: error while executing at wasm backtrace:
+    0: 0x1a1e1 - spacetime_module.wasm!__rust_start_panic
+    1: 0x1a1ad - spacetime_module.wasm!rust_panic
+    2: 0x1a19e - spacetime_module.wasm!std::panicking::rust_panic_with_hook::hb39abb160cd4038c
+    3: 0x196dc - spacetime_module.wasm!std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b
+    4: 0x19616 - spacetime_module.wasm!std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b
+    5: 0x19d33 - spacetime_module.wasm!rust_begin_unwind
+    6: 0x1ae53 - spacetime_module.wasm!core::panicking::panic_fmt::h6f4dae69dcc1a6d2
+    7: 0x194af - spacetime_module.wasm!std::time::SystemTime::now::hf23f9aaf43021bfe
+    8: 0x1e86 - spacetime_module.wasm!<Func as spacetimedb::rt::Reducer<(AF,)>>::invoke::h19420faccd850d69
+    9: 0x5b06 - spacetime_module.wasm!spacetime_module::register_user::invoke::h0a041b115e5fa48f
+   10: 0x11e66 - spacetime_module.wasm!__call_reducer__    
+[2m2025-03-18T17:25:36.858166Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #11: __rust_start_panic    
+[2m2025-03-18T17:25:36.883863Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #10: rust_panic    
+[2m2025-03-18T17:25:36.883896Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #9: std::panicking::rust_panic_with_hook::hb39abb160cd4038c    
+[2m2025-03-18T17:25:36.883913Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #8: std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b    
+[2m2025-03-18T17:25:36.883952Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #7: std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b    
+[2m2025-03-18T17:25:36.883986Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #6: rust_begin_unwind    
+[2m2025-03-18T17:25:36.884002Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #5: core::panicking::panic_fmt::h6f4dae69dcc1a6d2    
+[2m2025-03-18T17:25:36.884015Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #4: std::time::SystemTime::now::hf23f9aaf43021bfe    
+[2m2025-03-18T17:25:36.884028Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #3: <Func as spacetimedb::rt::Reducer<(AF,)>>::invoke::h19420faccd850d69    
+[2m2025-03-18T17:25:36.884043Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #2: spacetime_module::register_user::invoke::h0a041b115e5fa48f    
+[2m2025-03-18T17:25:36.884055Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #1: __call_reducer__    
+[2m2025-03-18T17:25:37.296124Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m408[0m[2m:[0m Client connection ended    
+[2m2025-03-18T17:25:38.299116Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m74[0m[2m:[0m The connection_id query parameter to the subscribe HTTP endpoint is internal and will be removed in a future version of SpacetimeDB.    
+[2m2025-03-18T17:25:38.300068Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m144[0m[2m:[0m New client connected from unknown ip    
+[2m2025-03-18T17:25:38.300967Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m14[0m[2m:[0m reducer "identity_connected" runtime error: error while executing at wasm backtrace:
+    0: 0x1a1e1 - spacetime_module.wasm!__rust_start_panic
+    1: 0x1a1ad - spacetime_module.wasm!rust_panic
+    2: 0x1a19e - spacetime_module.wasm!std::panicking::rust_panic_with_hook::hb39abb160cd4038c
+    3: 0x196dc - spacetime_module.wasm!std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b
+    4: 0x19616 - spacetime_module.wasm!std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b
+    5: 0x19d33 - spacetime_module.wasm!rust_begin_unwind
+    6: 0x1ae53 - spacetime_module.wasm!core::panicking::panic_fmt::h6f4dae69dcc1a6d2
+    7: 0x194af - spacetime_module.wasm!std::time::SystemTime::now::hf23f9aaf43021bfe
+    8:  0xdbb - spacetime_module.wasm!<Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13
+    9: 0x580e - spacetime_module.wasm!spacetime_module::identity_connected::invoke::he407f3469108ff22
+   10: 0x12017 - spacetime_module.wasm!__call_reducer__    
+[2m2025-03-18T17:25:38.302119Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #11: __rust_start_panic    
+[2m2025-03-18T17:25:38.302204Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #10: rust_panic    
+[2m2025-03-18T17:25:38.307377Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #9: std::panicking::rust_panic_with_hook::hb39abb160cd4038c    
+[2m2025-03-18T17:25:38.307444Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #8: std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b    
+[2m2025-03-18T17:25:38.317445Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #7: std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b    
+[2m2025-03-18T17:25:38.317479Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #6: rust_begin_unwind    
+[2m2025-03-18T17:25:38.317494Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #5: core::panicking::panic_fmt::h6f4dae69dcc1a6d2    
+[2m2025-03-18T17:25:38.317542Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #4: std::time::SystemTime::now::hf23f9aaf43021bfe    
+[2m2025-03-18T17:25:38.317578Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #3: <Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13    
+[2m2025-03-18T17:25:38.317649Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #2: spacetime_module::identity_connected::invoke::he407f3469108ff22    
+[2m2025-03-18T17:25:38.317666Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #1: __call_reducer__    
+[2m2025-03-18T17:26:04.585374Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m408[0m[2m:[0m Client connection ended    
+[2m2025-03-18T17:26:05.610590Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m74[0m[2m:[0m The connection_id query parameter to the subscribe HTTP endpoint is internal and will be removed in a future version of SpacetimeDB.    
+[2m2025-03-18T17:26:05.610927Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m144[0m[2m:[0m New client connected from unknown ip    
+[2m2025-03-18T17:26:05.611477Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m14[0m[2m:[0m reducer "identity_connected" runtime error: error while executing at wasm backtrace:
+    0: 0x1a1e1 - spacetime_module.wasm!__rust_start_panic
+    1: 0x1a1ad - spacetime_module.wasm!rust_panic
+    2: 0x1a19e - spacetime_module.wasm!std::panicking::rust_panic_with_hook::hb39abb160cd4038c
+    3: 0x196dc - spacetime_module.wasm!std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b
+    4: 0x19616 - spacetime_module.wasm!std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b
+    5: 0x19d33 - spacetime_module.wasm!rust_begin_unwind
+    6: 0x1ae53 - spacetime_module.wasm!core::panicking::panic_fmt::h6f4dae69dcc1a6d2
+    7: 0x194af - spacetime_module.wasm!std::time::SystemTime::now::hf23f9aaf43021bfe
+    8:  0xdbb - spacetime_module.wasm!<Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13
+    9: 0x580e - spacetime_module.wasm!spacetime_module::identity_connected::invoke::he407f3469108ff22
+   10: 0x12017 - spacetime_module.wasm!__call_reducer__    
+[2m2025-03-18T17:26:05.611689Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #11: __rust_start_panic    
+[2m2025-03-18T17:26:05.611727Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #10: rust_panic    
+[2m2025-03-18T17:26:05.611777Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #9: std::panicking::rust_panic_with_hook::hb39abb160cd4038c    
+[2m2025-03-18T17:26:05.611791Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #8: std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b    
+[2m2025-03-18T17:26:05.611806Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #7: std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b    
+[2m2025-03-18T17:26:05.611819Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #6: rust_begin_unwind    
+[2m2025-03-18T17:26:05.611831Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #5: core::panicking::panic_fmt::h6f4dae69dcc1a6d2    
+[2m2025-03-18T17:26:05.611845Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #4: std::time::SystemTime::now::hf23f9aaf43021bfe    
+[2m2025-03-18T17:26:05.611858Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #3: <Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13    
+[2m2025-03-18T17:26:05.611872Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #2: spacetime_module::identity_connected::invoke::he407f3469108ff22    
+[2m2025-03-18T17:26:05.612003Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #1: __call_reducer__    
+[2m2025-03-18T17:26:15.195126Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m14[0m[2m:[0m reducer "register_user" runtime error: error while executing at wasm backtrace:
+    0: 0x1a1e1 - spacetime_module.wasm!__rust_start_panic
+    1: 0x1a1ad - spacetime_module.wasm!rust_panic
+    2: 0x1a19e - spacetime_module.wasm!std::panicking::rust_panic_with_hook::hb39abb160cd4038c
+    3: 0x196dc - spacetime_module.wasm!std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b
+    4: 0x19616 - spacetime_module.wasm!std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b
+    5: 0x19d33 - spacetime_module.wasm!rust_begin_unwind
+    6: 0x1ae53 - spacetime_module.wasm!core::panicking::panic_fmt::h6f4dae69dcc1a6d2
+    7: 0x194af - spacetime_module.wasm!std::time::SystemTime::now::hf23f9aaf43021bfe
+    8: 0x1e86 - spacetime_module.wasm!<Func as spacetimedb::rt::Reducer<(AF,)>>::invoke::h19420faccd850d69
+    9: 0x5b06 - spacetime_module.wasm!spacetime_module::register_user::invoke::h0a041b115e5fa48f
+   10: 0x11e66 - spacetime_module.wasm!__call_reducer__    
+[2m2025-03-18T17:26:15.195750Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #11: __rust_start_panic    
+[2m2025-03-18T17:26:15.195802Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #10: rust_panic    
+[2m2025-03-18T17:26:15.195819Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #9: std::panicking::rust_panic_with_hook::hb39abb160cd4038c    
+[2m2025-03-18T17:26:15.195832Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #8: std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b    
+[2m2025-03-18T17:26:15.195846Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #7: std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b    
+[2m2025-03-18T17:26:15.195968Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #6: rust_begin_unwind    
+[2m2025-03-18T17:26:15.196023Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #5: core::panicking::panic_fmt::h6f4dae69dcc1a6d2    
+[2m2025-03-18T17:26:15.196064Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #4: std::time::SystemTime::now::hf23f9aaf43021bfe    
+[2m2025-03-18T17:26:15.196087Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #3: <Func as spacetimedb::rt::Reducer<(AF,)>>::invoke::h19420faccd850d69    
+[2m2025-03-18T17:26:15.196118Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #2: spacetime_module::register_user::invoke::h0a041b115e5fa48f    
+[2m2025-03-18T17:26:15.196155Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #1: __call_reducer__    
+[2m2025-03-18T17:26:15.322173Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m408[0m[2m:[0m Client connection ended    
+[2m2025-03-18T17:26:16.315585Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m74[0m[2m:[0m The connection_id query parameter to the subscribe HTTP endpoint is internal and will be removed in a future version of SpacetimeDB.    
+[2m2025-03-18T17:26:16.316110Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m144[0m[2m:[0m New client connected from unknown ip    
+[2m2025-03-18T17:26:16.317479Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m14[0m[2m:[0m reducer "identity_connected" runtime error: error while executing at wasm backtrace:
+    0: 0x1a1e1 - spacetime_module.wasm!__rust_start_panic
+    1: 0x1a1ad - spacetime_module.wasm!rust_panic
+    2: 0x1a19e - spacetime_module.wasm!std::panicking::rust_panic_with_hook::hb39abb160cd4038c
+    3: 0x196dc - spacetime_module.wasm!std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b
+    4: 0x19616 - spacetime_module.wasm!std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b
+    5: 0x19d33 - spacetime_module.wasm!rust_begin_unwind
+    6: 0x1ae53 - spacetime_module.wasm!core::panicking::panic_fmt::h6f4dae69dcc1a6d2
+    7: 0x194af - spacetime_module.wasm!std::time::SystemTime::now::hf23f9aaf43021bfe
+    8:  0xdbb - spacetime_module.wasm!<Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13
+    9: 0x580e - spacetime_module.wasm!spacetime_module::identity_connected::invoke::he407f3469108ff22
+   10: 0x12017 - spacetime_module.wasm!__call_reducer__    
+[2m2025-03-18T17:26:16.318089Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #11: __rust_start_panic    
+[2m2025-03-18T17:26:16.323362Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #10: rust_panic    
+[2m2025-03-18T17:26:16.323495Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #9: std::panicking::rust_panic_with_hook::hb39abb160cd4038c    
+[2m2025-03-18T17:26:16.323584Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #8: std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b    
+[2m2025-03-18T17:26:16.323645Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #7: std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b    
+[2m2025-03-18T17:26:16.323744Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #6: rust_begin_unwind    
+[2m2025-03-18T17:26:16.323806Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #5: core::panicking::panic_fmt::h6f4dae69dcc1a6d2    
+[2m2025-03-18T17:26:16.323826Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #4: std::time::SystemTime::now::hf23f9aaf43021bfe    
+[2m2025-03-18T17:26:16.323858Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #3: <Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13    
+[2m2025-03-18T17:26:16.323922Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #2: spacetime_module::identity_connected::invoke::he407f3469108ff22    
+[2m2025-03-18T17:26:16.324014Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #1: __call_reducer__    
+[2m2025-03-18T17:26:20.682536Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m408[0m[2m:[0m Client connection ended    
+[2m2025-03-18T17:26:21.834742Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m74[0m[2m:[0m The connection_id query parameter to the subscribe HTTP endpoint is internal and will be removed in a future version of SpacetimeDB.    
+[2m2025-03-18T17:26:21.835023Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m144[0m[2m:[0m New client connected from unknown ip    
+[2m2025-03-18T17:26:21.835653Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m14[0m[2m:[0m reducer "identity_connected" runtime error: error while executing at wasm backtrace:
+    0: 0x1a1e1 - spacetime_module.wasm!__rust_start_panic
+    1: 0x1a1ad - spacetime_module.wasm!rust_panic
+    2: 0x1a19e - spacetime_module.wasm!std::panicking::rust_panic_with_hook::hb39abb160cd4038c
+    3: 0x196dc - spacetime_module.wasm!std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b
+    4: 0x19616 - spacetime_module.wasm!std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b
+    5: 0x19d33 - spacetime_module.wasm!rust_begin_unwind
+    6: 0x1ae53 - spacetime_module.wasm!core::panicking::panic_fmt::h6f4dae69dcc1a6d2
+    7: 0x194af - spacetime_module.wasm!std::time::SystemTime::now::hf23f9aaf43021bfe
+    8:  0xdbb - spacetime_module.wasm!<Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13
+    9: 0x580e - spacetime_module.wasm!spacetime_module::identity_connected::invoke::he407f3469108ff22
+   10: 0x12017 - spacetime_module.wasm!__call_reducer__    
+[2m2025-03-18T17:26:21.835853Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #11: __rust_start_panic    
+[2m2025-03-18T17:26:21.835884Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #10: rust_panic    
+[2m2025-03-18T17:26:21.835904Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #9: std::panicking::rust_panic_with_hook::hb39abb160cd4038c    
+[2m2025-03-18T17:26:21.835922Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #8: std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b    
+[2m2025-03-18T17:26:21.836170Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #7: std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b    
+[2m2025-03-18T17:26:21.836196Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #6: rust_begin_unwind    
+[2m2025-03-18T17:26:21.836214Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #5: core::panicking::panic_fmt::h6f4dae69dcc1a6d2    
+[2m2025-03-18T17:26:21.836258Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #4: std::time::SystemTime::now::hf23f9aaf43021bfe    
+[2m2025-03-18T17:26:21.836300Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #3: <Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13    
+[2m2025-03-18T17:26:21.836324Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #2: spacetime_module::identity_connected::invoke::he407f3469108ff22    
+[2m2025-03-18T17:26:21.836474Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #1: __call_reducer__    
+[2m2025-03-18T17:26:28.854257Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m14[0m[2m:[0m reducer "register_user" runtime error: error while executing at wasm backtrace:
+    0: 0x1a1e1 - spacetime_module.wasm!__rust_start_panic
+    1: 0x1a1ad - spacetime_module.wasm!rust_panic
+    2: 0x1a19e - spacetime_module.wasm!std::panicking::rust_panic_with_hook::hb39abb160cd4038c
+    3: 0x196dc - spacetime_module.wasm!std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b
+    4: 0x19616 - spacetime_module.wasm!std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b
+    5: 0x19d33 - spacetime_module.wasm!rust_begin_unwind
+    6: 0x1ae53 - spacetime_module.wasm!core::panicking::panic_fmt::h6f4dae69dcc1a6d2
+    7: 0x194af - spacetime_module.wasm!std::time::SystemTime::now::hf23f9aaf43021bfe
+    8: 0x1e86 - spacetime_module.wasm!<Func as spacetimedb::rt::Reducer<(AF,)>>::invoke::h19420faccd850d69
+    9: 0x5b06 - spacetime_module.wasm!spacetime_module::register_user::invoke::h0a041b115e5fa48f
+   10: 0x11e66 - spacetime_module.wasm!__call_reducer__    
+[2m2025-03-18T17:26:28.854739Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #11: __rust_start_panic    
+[2m2025-03-18T17:26:28.854824Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #10: rust_panic    
+[2m2025-03-18T17:26:28.854886Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #9: std::panicking::rust_panic_with_hook::hb39abb160cd4038c    
+[2m2025-03-18T17:26:28.854907Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #8: std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b    
+[2m2025-03-18T17:26:28.854926Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #7: std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b    
+[2m2025-03-18T17:26:28.854975Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #6: rust_begin_unwind    
+[2m2025-03-18T17:26:28.855010Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #5: core::panicking::panic_fmt::h6f4dae69dcc1a6d2    
+[2m2025-03-18T17:26:28.855135Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #4: std::time::SystemTime::now::hf23f9aaf43021bfe    
+[2m2025-03-18T17:26:28.855200Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #3: <Func as spacetimedb::rt::Reducer<(AF,)>>::invoke::h19420faccd850d69    
+[2m2025-03-18T17:26:28.855237Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #2: spacetime_module::register_user::invoke::h0a041b115e5fa48f    
+[2m2025-03-18T17:26:28.855293Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #1: __call_reducer__    
+[2m2025-03-18T17:26:31.544747Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m408[0m[2m:[0m Client connection ended    
+[2m2025-03-18T17:26:32.520428Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m74[0m[2m:[0m The connection_id query parameter to the subscribe HTTP endpoint is internal and will be removed in a future version of SpacetimeDB.    
+[2m2025-03-18T17:26:32.521199Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m144[0m[2m:[0m New client connected from unknown ip    
+[2m2025-03-18T17:26:32.523453Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m14[0m[2m:[0m reducer "identity_connected" runtime error: error while executing at wasm backtrace:
+    0: 0x1a1e1 - spacetime_module.wasm!__rust_start_panic
+    1: 0x1a1ad - spacetime_module.wasm!rust_panic
+    2: 0x1a19e - spacetime_module.wasm!std::panicking::rust_panic_with_hook::hb39abb160cd4038c
+    3: 0x196dc - spacetime_module.wasm!std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b
+    4: 0x19616 - spacetime_module.wasm!std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b
+    5: 0x19d33 - spacetime_module.wasm!rust_begin_unwind
+    6: 0x1ae53 - spacetime_module.wasm!core::panicking::panic_fmt::h6f4dae69dcc1a6d2
+    7: 0x194af - spacetime_module.wasm!std::time::SystemTime::now::hf23f9aaf43021bfe
+    8:  0xdbb - spacetime_module.wasm!<Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13
+    9: 0x580e - spacetime_module.wasm!spacetime_module::identity_connected::invoke::he407f3469108ff22
+   10: 0x12017 - spacetime_module.wasm!__call_reducer__    
+[2m2025-03-18T17:26:32.523747Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #11: __rust_start_panic    
+[2m2025-03-18T17:26:32.523813Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #10: rust_panic    
+[2m2025-03-18T17:26:32.523875Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #9: std::panicking::rust_panic_with_hook::hb39abb160cd4038c    
+[2m2025-03-18T17:26:32.523936Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #8: std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b    
+[2m2025-03-18T17:26:32.524070Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #7: std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b    
+[2m2025-03-18T17:26:32.524161Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #6: rust_begin_unwind    
+[2m2025-03-18T17:26:32.524283Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #5: core::panicking::panic_fmt::h6f4dae69dcc1a6d2    
+[2m2025-03-18T17:26:32.524344Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #4: std::time::SystemTime::now::hf23f9aaf43021bfe    
+[2m2025-03-18T17:26:32.524405Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #3: <Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13    
+[2m2025-03-18T17:26:32.524466Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #2: spacetime_module::identity_connected::invoke::he407f3469108ff22    
+[2m2025-03-18T17:26:32.524525Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #1: __call_reducer__    
+[2m2025-03-18T17:27:15.585076Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m408[0m[2m:[0m Client connection ended    
+[2m2025-03-18T17:27:16.250609Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m74[0m[2m:[0m The connection_id query parameter to the subscribe HTTP endpoint is internal and will be removed in a future version of SpacetimeDB.    
+[2m2025-03-18T17:27:16.251209Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m144[0m[2m:[0m New client connected from unknown ip    
+[2m2025-03-18T17:27:16.255221Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m14[0m[2m:[0m reducer "identity_connected" runtime error: error while executing at wasm backtrace:
+    0: 0x1a1e1 - spacetime_module.wasm!__rust_start_panic
+    1: 0x1a1ad - spacetime_module.wasm!rust_panic
+    2: 0x1a19e - spacetime_module.wasm!std::panicking::rust_panic_with_hook::hb39abb160cd4038c
+    3: 0x196dc - spacetime_module.wasm!std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b
+    4: 0x19616 - spacetime_module.wasm!std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b
+    5: 0x19d33 - spacetime_module.wasm!rust_begin_unwind
+    6: 0x1ae53 - spacetime_module.wasm!core::panicking::panic_fmt::h6f4dae69dcc1a6d2
+    7: 0x194af - spacetime_module.wasm!std::time::SystemTime::now::hf23f9aaf43021bfe
+    8:  0xdbb - spacetime_module.wasm!<Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13
+    9: 0x580e - spacetime_module.wasm!spacetime_module::identity_connected::invoke::he407f3469108ff22
+   10: 0x12017 - spacetime_module.wasm!__call_reducer__    
+[2m2025-03-18T17:27:16.256659Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #11: __rust_start_panic    
+[2m2025-03-18T17:27:16.257297Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #10: rust_panic    
+[2m2025-03-18T17:27:16.257334Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #9: std::panicking::rust_panic_with_hook::hb39abb160cd4038c    
+[2m2025-03-18T17:27:16.257388Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #8: std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b    
+[2m2025-03-18T17:27:16.257413Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #7: std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b    
+[2m2025-03-18T17:27:16.257431Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #6: rust_begin_unwind    
+[2m2025-03-18T17:27:16.257488Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #5: core::panicking::panic_fmt::h6f4dae69dcc1a6d2    
+[2m2025-03-18T17:27:16.257561Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #4: std::time::SystemTime::now::hf23f9aaf43021bfe    
+[2m2025-03-18T17:27:16.257659Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #3: <Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13    
+[2m2025-03-18T17:27:16.257717Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #2: spacetime_module::identity_connected::invoke::he407f3469108ff22    
+[2m2025-03-18T17:27:16.257739Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #1: __call_reducer__    
+[2m2025-03-18T17:27:26.137646Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m408[0m[2m:[0m Client connection ended    
+[2m2025-03-18T17:27:27.140240Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m74[0m[2m:[0m The connection_id query parameter to the subscribe HTTP endpoint is internal and will be removed in a future version of SpacetimeDB.    
+[2m2025-03-18T17:27:27.140637Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m144[0m[2m:[0m New client connected from unknown ip    
+[2m2025-03-18T17:27:27.141000Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m14[0m[2m:[0m reducer "identity_connected" runtime error: error while executing at wasm backtrace:
+    0: 0x1a1e1 - spacetime_module.wasm!__rust_start_panic
+    1: 0x1a1ad - spacetime_module.wasm!rust_panic
+    2: 0x1a19e - spacetime_module.wasm!std::panicking::rust_panic_with_hook::hb39abb160cd4038c
+    3: 0x196dc - spacetime_module.wasm!std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b
+    4: 0x19616 - spacetime_module.wasm!std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b
+    5: 0x19d33 - spacetime_module.wasm!rust_begin_unwind
+    6: 0x1ae53 - spacetime_module.wasm!core::panicking::panic_fmt::h6f4dae69dcc1a6d2
+    7: 0x194af - spacetime_module.wasm!std::time::SystemTime::now::hf23f9aaf43021bfe
+    8:  0xdbb - spacetime_module.wasm!<Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13
+    9: 0x580e - spacetime_module.wasm!spacetime_module::identity_connected::invoke::he407f3469108ff22
+   10: 0x12017 - spacetime_module.wasm!__call_reducer__    
+[2m2025-03-18T17:27:27.141146Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #11: __rust_start_panic    
+[2m2025-03-18T17:27:27.141179Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #10: rust_panic    
+[2m2025-03-18T17:27:27.141222Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #9: std::panicking::rust_panic_with_hook::hb39abb160cd4038c    
+[2m2025-03-18T17:27:27.141247Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #8: std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b    
+[2m2025-03-18T17:27:27.141264Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #7: std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b    
+[2m2025-03-18T17:27:27.141366Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #6: rust_begin_unwind    
+[2m2025-03-18T17:27:27.141394Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #5: core::panicking::panic_fmt::h6f4dae69dcc1a6d2    
+[2m2025-03-18T17:27:27.141443Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #4: std::time::SystemTime::now::hf23f9aaf43021bfe    
+[2m2025-03-18T17:27:27.141531Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #3: <Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13    
+[2m2025-03-18T17:27:27.141707Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #2: spacetime_module::identity_connected::invoke::he407f3469108ff22    
+[2m2025-03-18T17:27:27.141725Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #1: __call_reducer__    
+[2m2025-03-18T17:27:36.077813Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m408[0m[2m:[0m Client connection ended    
+[2m2025-03-18T17:27:36.859299Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m74[0m[2m:[0m The connection_id query parameter to the subscribe HTTP endpoint is internal and will be removed in a future version of SpacetimeDB.    
+[2m2025-03-18T17:27:36.859927Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m144[0m[2m:[0m New client connected from unknown ip    
+[2m2025-03-18T17:27:36.860683Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m14[0m[2m:[0m reducer "identity_connected" runtime error: error while executing at wasm backtrace:
+    0: 0x1a1e1 - spacetime_module.wasm!__rust_start_panic
+    1: 0x1a1ad - spacetime_module.wasm!rust_panic
+    2: 0x1a19e - spacetime_module.wasm!std::panicking::rust_panic_with_hook::hb39abb160cd4038c
+    3: 0x196dc - spacetime_module.wasm!std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b
+    4: 0x19616 - spacetime_module.wasm!std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b
+    5: 0x19d33 - spacetime_module.wasm!rust_begin_unwind
+    6: 0x1ae53 - spacetime_module.wasm!core::panicking::panic_fmt::h6f4dae69dcc1a6d2
+    7: 0x194af - spacetime_module.wasm!std::time::SystemTime::now::hf23f9aaf43021bfe
+    8:  0xdbb - spacetime_module.wasm!<Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13
+    9: 0x580e - spacetime_module.wasm!spacetime_module::identity_connected::invoke::he407f3469108ff22
+   10: 0x12017 - spacetime_module.wasm!__call_reducer__    
+[2m2025-03-18T17:27:36.860986Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #11: __rust_start_panic    
+[2m2025-03-18T17:27:36.861029Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #10: rust_panic    
+[2m2025-03-18T17:27:36.861052Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #9: std::panicking::rust_panic_with_hook::hb39abb160cd4038c    
+[2m2025-03-18T17:27:36.861070Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #8: std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b    
+[2m2025-03-18T17:27:36.861087Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #7: std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b    
+[2m2025-03-18T17:27:36.861102Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #6: rust_begin_unwind    
+[2m2025-03-18T17:27:36.861117Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #5: core::panicking::panic_fmt::h6f4dae69dcc1a6d2    
+[2m2025-03-18T17:27:36.861131Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #4: std::time::SystemTime::now::hf23f9aaf43021bfe    
+[2m2025-03-18T17:27:36.861158Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #3: <Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13    
+[2m2025-03-18T17:27:36.861176Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #2: spacetime_module::identity_connected::invoke::he407f3469108ff22    
+[2m2025-03-18T17:27:36.861192Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #1: __call_reducer__    
+[2m2025-03-18T17:27:46.703819Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m408[0m[2m:[0m Client connection ended    
+[2m2025-03-18T17:27:48.709603Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m74[0m[2m:[0m The connection_id query parameter to the subscribe HTTP endpoint is internal and will be removed in a future version of SpacetimeDB.    
+[2m2025-03-18T17:27:48.709836Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m144[0m[2m:[0m New client connected from unknown ip    
+[2m2025-03-18T17:27:48.716770Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m14[0m[2m:[0m reducer "identity_connected" runtime error: error while executing at wasm backtrace:
+    0: 0x1a1e1 - spacetime_module.wasm!__rust_start_panic
+    1: 0x1a1ad - spacetime_module.wasm!rust_panic
+    2: 0x1a19e - spacetime_module.wasm!std::panicking::rust_panic_with_hook::hb39abb160cd4038c
+    3: 0x196dc - spacetime_module.wasm!std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b
+    4: 0x19616 - spacetime_module.wasm!std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b
+    5: 0x19d33 - spacetime_module.wasm!rust_begin_unwind
+    6: 0x1ae53 - spacetime_module.wasm!core::panicking::panic_fmt::h6f4dae69dcc1a6d2
+    7: 0x194af - spacetime_module.wasm!std::time::SystemTime::now::hf23f9aaf43021bfe
+    8:  0xdbb - spacetime_module.wasm!<Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13
+    9: 0x580e - spacetime_module.wasm!spacetime_module::identity_connected::invoke::he407f3469108ff22
+   10: 0x12017 - spacetime_module.wasm!__call_reducer__    
+[2m2025-03-18T17:27:48.717025Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #11: __rust_start_panic    
+[2m2025-03-18T17:27:48.717097Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #10: rust_panic    
+[2m2025-03-18T17:27:48.717159Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #9: std::panicking::rust_panic_with_hook::hb39abb160cd4038c    
+[2m2025-03-18T17:27:48.717501Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #8: std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b    
+[2m2025-03-18T17:27:48.717545Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #7: std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b    
+[2m2025-03-18T17:27:48.717563Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #6: rust_begin_unwind    
+[2m2025-03-18T17:27:48.717579Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #5: core::panicking::panic_fmt::h6f4dae69dcc1a6d2    
+[2m2025-03-18T17:27:48.717614Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #4: std::time::SystemTime::now::hf23f9aaf43021bfe    
+[2m2025-03-18T17:27:48.717704Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #3: <Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13    
+[2m2025-03-18T17:27:48.717741Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #2: spacetime_module::identity_connected::invoke::he407f3469108ff22    
+[2m2025-03-18T17:27:48.717780Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #1: __call_reducer__    
+[2m2025-03-18T17:28:35.896632Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T17:29:20.009336Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m408[0m[2m:[0m Client connection ended    
+[2m2025-03-18T17:29:20.763828Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m74[0m[2m:[0m The connection_id query parameter to the subscribe HTTP endpoint is internal and will be removed in a future version of SpacetimeDB.    
+[2m2025-03-18T17:29:20.764257Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m144[0m[2m:[0m New client connected from unknown ip    
+[2m2025-03-18T17:29:20.764694Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m14[0m[2m:[0m reducer "identity_connected" runtime error: error while executing at wasm backtrace:
+    0: 0x1a1e1 - spacetime_module.wasm!__rust_start_panic
+    1: 0x1a1ad - spacetime_module.wasm!rust_panic
+    2: 0x1a19e - spacetime_module.wasm!std::panicking::rust_panic_with_hook::hb39abb160cd4038c
+    3: 0x196dc - spacetime_module.wasm!std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b
+    4: 0x19616 - spacetime_module.wasm!std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b
+    5: 0x19d33 - spacetime_module.wasm!rust_begin_unwind
+    6: 0x1ae53 - spacetime_module.wasm!core::panicking::panic_fmt::h6f4dae69dcc1a6d2
+    7: 0x194af - spacetime_module.wasm!std::time::SystemTime::now::hf23f9aaf43021bfe
+    8:  0xdbb - spacetime_module.wasm!<Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13
+    9: 0x580e - spacetime_module.wasm!spacetime_module::identity_connected::invoke::he407f3469108ff22
+   10: 0x12017 - spacetime_module.wasm!__call_reducer__    
+[2m2025-03-18T17:29:20.766254Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #11: __rust_start_panic    
+[2m2025-03-18T17:29:20.766287Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #10: rust_panic    
+[2m2025-03-18T17:29:20.766307Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #9: std::panicking::rust_panic_with_hook::hb39abb160cd4038c    
+[2m2025-03-18T17:29:20.766326Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #8: std::panicking::begin_panic_handler::{{closure}}::h83b3d84f04c7372b    
+[2m2025-03-18T17:29:20.766344Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #7: std::sys::backtrace::__rust_end_short_backtrace::h8eb99c908c86e40b    
+[2m2025-03-18T17:29:20.766542Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #6: rust_begin_unwind    
+[2m2025-03-18T17:29:20.766618Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #5: core::panicking::panic_fmt::h6f4dae69dcc1a6d2    
+[2m2025-03-18T17:29:20.766705Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #4: std::time::SystemTime::now::hf23f9aaf43021bfe    
+[2m2025-03-18T17:29:20.766775Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #3: <Func as spacetimedb::rt::Reducer<()>>::invoke::h066854e0ed934d13    
+[2m2025-03-18T17:29:20.766880Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #2: spacetime_module::identity_connected::invoke::he407f3469108ff22    
+[2m2025-03-18T17:29:20.766957Z[0m [32m INFO[0m [2mcrates/core/src/host/wasmtime/wasmtime_module.rs[0m[2m:[0m[2m18[0m[2m:[0m   Frame #1: __call_reducer__    
+[2m2025-03-18T17:29:30.706948Z[0m [34mDEBUG[0m [2m/Users/runner/work/SpacetimeDB/SpacetimeDB/crates/client-api/src/routes/subscribe.rs[0m[2m:[0m[2m408[0m[2m:[0m Client connection ended    
+[2m2025-03-18T17:33:35.905542Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T17:38:35.915019Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T17:43:35.923611Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T17:48:35.961343Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T17:53:35.942250Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T17:58:35.951121Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T18:03:35.959117Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T18:08:35.974316Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T18:13:35.977270Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T18:18:35.986294Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T18:23:35.995854Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T18:28:36.004338Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T18:33:36.014099Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T18:38:58.910431Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T18:44:37.002891Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T18:44:37.180564Z[0m [33m WARN[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m216[0m[2m:[0m Error fetching public key for issuer https://auth.spacetimedb.com: FetchError(reqwest::Error { kind: Request, url: Url { scheme: "https", cannot_be_a_base: false, username: "", password: None, host: Some(Domain("auth.spacetimedb.com")), port: None, path: "/.well-known/openid-configuration", query: None, fragment: None }, source: hyper::Error(Connect, ConnectError("tcp connect error", Os { code: 50, kind: NetworkDown, message: "Network is down" })) })    
+[2m2025-03-18T18:49:35.966903Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T18:54:35.975771Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T18:59:35.984919Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T19:04:35.993675Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T19:09:36.002877Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T19:14:36.011324Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T19:19:36.020934Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T19:24:36.029878Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T19:29:36.038848Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    
+[2m2025-03-18T19:34:36.047087Z[0m [32m INFO[0m [2mcrates/core/src/auth/token_validation.rs[0m[2m:[0m[2m209[0m[2m:[0m Fetching key for issuer https://auth.spacetimedb.com    

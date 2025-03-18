@@ -9,11 +9,11 @@ then
 fi
 
 # Create data directory if not exists
-mkdir -p .spacetime
+mkdir -p .spacetime/localdb
 
 # Run SpacetimeDB local server
-echo "Starting SpacetimeDB local server..."
-spacetime local --db-path .spacetime/localdb
+echo "Starting SpacetimeDB local server on port 3001..."
+spacetime start --data-dir .spacetime/localdb --listen-addr 127.0.0.1:3001
 
 # If the server stops, print a message
 echo "SpacetimeDB server stopped." 

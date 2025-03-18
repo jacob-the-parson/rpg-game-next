@@ -89,8 +89,10 @@ export default function Home() {
   };
 
   // Handle character selection and login
-  const handleSelectCharacter = (characterId: number) => {
-    login(characterId);
+  const handleSelectCharacter = (characterId: number | bigint) => {
+    // Convert to number if it's a bigint
+    const id = typeof characterId === 'bigint' ? Number(characterId) : characterId;
+    login(id);
   };
 
   // Handle logout
@@ -103,9 +105,36 @@ export default function Home() {
       <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-slate-900 text-white">
         <div className="w-full max-w-md p-6 bg-slate-800 rounded-lg shadow-xl">
           <h1 className="text-2xl font-bold mb-4 text-center">Loading...</h1>
-          <div className="flex justify-center">
+          <div className="flex justify-center mb-4">
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
           </div>
+          
+          {/* Display error if there is one */}
+          {error && (
+            <div className="mb-4 p-3 bg-red-900 rounded-md text-white">
+              {error}
+            </div>
+          )}
+          
+          {/* Workaround button for development testing */}
+          {process.env.NODE_ENV === 'development' && (
+            <div className="mt-4 text-center">
+              <p className="mb-2 text-sm text-yellow-400">
+                Connection taking too long? Try using mock mode for testing:
+              </p>
+              <button 
+                onClick={() => {
+                  // This is a workaround for development - mock the authentication
+                  // We'll use the register function which will trigger its own timeout
+                  register("testuser");
+                  console.log("Development workaround: Initiated mock authentication");
+                }}
+                className="px-4 py-2 bg-yellow-600 hover:bg-yellow-700 rounded-md text-sm transition-colors"
+              >
+                Use Mock Mode (Dev Only)
+              </button>
+            </div>
+          )}
         </div>
       </main>
     );
