@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RPG Game Next
 
-## Getting Started
+A multiplayer RPG game built with Next.js 15, Excalibur.js, and SpacetimeDB with AI-powered NPCs.
 
-First, run the development server:
+## Overview
+
+- Modern web-based RPG with top-down 2D perspective
+- Built on Next.js 15 with App Router and React 19
+- Excalibur.js for game engine capabilities
+- SpacetimeDB for real-time multiplayer backend
+- AI-powered NPCs and dynamic narrative
+
+## Project Structure Note
+
+This project uses the `/src/app` directory structure for the Next.js App Router. The `/app` directory has been deprecated and should not be used.
+
+## Quick Start
 
 ```bash
+# Clone and enter the repository
+git clone <repository-url>
+cd rpg-game-next
+
+# Run the setup script
+npm run setup
+
+# Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000/game](http://localhost:3000/game) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Documentation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Comprehensive documentation is available in the [docs folder](./docs).
 
-## Learn More
+- [Project Overview](./docs/README.md)
+- [Project Roadmap](./docs/project-roadmap.md)
+- [Troubleshooting Guide](./docs/troubleshooting/README.md)
 
-To learn more about Next.js, take a look at the following resources:
+## Development Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `npm run dev` - Start the Next.js development server
+- `npm run build` - Build the production application
+- `npm run start` - Start the production server
+- `npm run setup` - Set up the development environment
+- `npm run spacetime:start` - Start the local SpacetimeDB server
+- `npm run spacetime:deploy` - Deploy backend to local SpacetimeDB
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Troubleshooting
 
-## Deploy on Vercel
+If you encounter any issues:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Check the [Troubleshooting Guide](./docs/troubleshooting/README.md)
+2. Make sure you're running the latest version of Node.js and npm
+3. Verify that all dependencies are installed correctly
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+MIT 

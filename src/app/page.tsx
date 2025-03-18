@@ -1,103 +1,390 @@
-import Image from "next/image";
+'use client';
+
+import { useState } from 'react';
+import { useAuth } from '@/contexts/AuthContext';
+import Link from 'next/link';
+
+// Character classes with descriptions
+const CHARACTER_CLASSES = [
+  {
+    id: 'warrior',
+    name: 'Warrior',
+    description: 'Strong melee fighter with high health and defense.',
+    startingStats: 'Strength +3, Constitution +2',
+  },
+  {
+    id: 'mage',
+    name: 'Mage',
+    description: 'Powerful spellcaster with elemental magic abilities.',
+    startingStats: 'Intelligence +3, Wisdom +2',
+  },
+  {
+    id: 'rogue',
+    name: 'Rogue',
+    description: 'Agile fighter specializing in stealth and critical strikes.',
+    startingStats: 'Dexterity +3, Charisma +2',
+  },
+  {
+    id: 'ranger',
+    name: 'Ranger',
+    description: 'Skilled archer with animal companions and nature abilities.',
+    startingStats: 'Dexterity +2, Wisdom +2, Constitution +1',
+  },
+];
+
+// Appearance options
+const APPEARANCE_OPTIONS = {
+  skin: ['light', 'medium', 'dark', 'tan', 'olive'],
+  hair: ['black', 'brown', 'blonde', 'red', 'white', 'gray'],
+  eyes: ['brown', 'blue', 'green', 'gray', 'amber'],
+  outfit: ['casual', 'noble', 'warrior', 'mage', 'hunter', 'rogue'],
+};
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const { 
+    isAuthenticated, 
+    isLoading, 
+    characters, 
+    currentCharacter,
+    error,
+    register,
+    createCharacter,
+    login,
+    logout 
+  } = useAuth();
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  // Registration form state
+  const [username, setUsername] = useState('');
+  const [showRegistrationForm, setShowRegistrationForm] = useState(false);
+
+  // Character creation form state
+  const [showCharacterCreation, setShowCharacterCreation] = useState(false);
+  const [characterName, setCharacterName] = useState('');
+  const [characterClass, setCharacterClass] = useState(CHARACTER_CLASSES[0].id);
+  const [appearance, setAppearance] = useState({
+    skin: APPEARANCE_OPTIONS.skin[0],
+    hair: APPEARANCE_OPTIONS.hair[0],
+    eyes: APPEARANCE_OPTIONS.eyes[0],
+    outfit: APPEARANCE_OPTIONS.outfit[0],
+  });
+
+  // Handle registration form submission
+  const handleRegister = (e: React.FormEvent) => {
+    e.preventDefault();
+    register(username);
+  };
+
+  // Handle character creation form submission
+  const handleCreateCharacter = (e: React.FormEvent) => {
+    e.preventDefault();
+    createCharacter(
+      characterName, 
+      characterClass, 
+      appearance.skin, 
+      appearance.hair, 
+      appearance.eyes, 
+      appearance.outfit
+    );
+    setShowCharacterCreation(false);
+  };
+
+  // Handle character selection and login
+  const handleSelectCharacter = (characterId: number) => {
+    login(characterId);
+  };
+
+  // Handle logout
+  const handleLogout = () => {
+    logout();
+  };
+
+  if (isLoading) {
+    return (
+      <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-slate-900 text-white">
+        <div className="w-full max-w-md p-6 bg-slate-800 rounded-lg shadow-xl">
+          <h1 className="text-2xl font-bold mb-4 text-center">Loading...</h1>
+          <div className="flex justify-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+    );
+  }
+
+  // If user is authenticated and has a current character, redirect to game
+  if (isAuthenticated && currentCharacter) {
+  return (
+      <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-slate-900 text-white">
+        <div className="w-full max-w-md p-6 bg-slate-800 rounded-lg shadow-xl">
+          <h1 className="text-2xl font-bold mb-4 text-center">Welcome, {currentCharacter.name}!</h1>
+          <p className="mb-6 text-center">You are logged in and ready to play.</p>
+
+          <div className="flex justify-between">
+            <Link 
+              href="/game" 
+              className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-md transition-colors"
+            >
+              Enter Game
+            </Link>
+            
+            <button 
+              onClick={handleLogout}
+              className="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-md transition-colors"
+            >
+              Logout
+            </button>
+          </div>
+        </div>
+      </main>
+    );
+  }
+
+  // Character selection screen
+  if (isAuthenticated && characters.length > 0 && !showCharacterCreation) {
+    return (
+      <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-slate-900 text-white">
+        <div className="w-full max-w-md p-6 bg-slate-800 rounded-lg shadow-xl">
+          <h1 className="text-2xl font-bold mb-4 text-center">Select Character</h1>
+          
+          {error && (
+            <div className="mb-4 p-3 bg-red-900 rounded-md text-white">
+              {error}
+            </div>
+          )}
+          
+          <div className="space-y-3 mb-6">
+            {characters.map((char) => (
+              <div 
+                key={char.id}
+                className="p-3 bg-slate-700 rounded-md cursor-pointer hover:bg-slate-600 transition-colors"
+                onClick={() => handleSelectCharacter(char.id)}
+              >
+                <div className="flex justify-between items-center">
+                  <div>
+                    <h3 className="font-bold">{char.name}</h3>
+                    <p className="text-sm text-slate-300">Level {char.level} {char.class}</p>
+                  </div>
+                  <button className="px-3 py-1 bg-blue-600 hover:bg-blue-700 rounded-md text-sm">
+                    Select
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="flex justify-between">
+            <button 
+              onClick={() => setShowCharacterCreation(true)}
+              className="px-4 py-2 bg-green-600 hover:bg-green-700 rounded-md transition-colors"
+            >
+              Create New Character
+            </button>
+            
+            <button 
+              onClick={handleLogout}
+              className="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-md transition-colors"
+            >
+              Logout
+            </button>
+          </div>
+        </div>
+      </main>
+    );
+  }
+
+  // Character creation form
+  if (isAuthenticated && showCharacterCreation) {
+    return (
+      <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-slate-900 text-white">
+        <div className="w-full max-w-md p-6 bg-slate-800 rounded-lg shadow-xl">
+          <h1 className="text-2xl font-bold mb-4 text-center">Create Character</h1>
+          
+          {error && (
+            <div className="mb-4 p-3 bg-red-900 rounded-md text-white">
+              {error}
+            </div>
+          )}
+          
+          <form onSubmit={handleCreateCharacter} className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium mb-1">Character Name</label>
+              <input
+                type="text"
+                value={characterName}
+                onChange={(e) => setCharacterName(e.target.value)}
+                required
+                className="w-full p-2 bg-slate-700 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              />
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium mb-1">Class</label>
+              <select
+                value={characterClass}
+                onChange={(e) => setCharacterClass(e.target.value)}
+                className="w-full p-2 bg-slate-700 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              >
+                {CHARACTER_CLASSES.map((c) => (
+                  <option key={c.id} value={c.id}>{c.name}</option>
+                ))}
+              </select>
+              
+              <div className="mt-2 p-3 bg-slate-700 rounded-md">
+                <p className="text-sm">
+                  {CHARACTER_CLASSES.find(c => c.id === characterClass)?.description}
+                </p>
+                <p className="text-sm text-blue-400 mt-1">
+                  {CHARACTER_CLASSES.find(c => c.id === characterClass)?.startingStats}
+                </p>
+              </div>
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium mb-1">Appearance</label>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs mb-1">Skin</label>
+                  <select
+                    value={appearance.skin}
+                    onChange={(e) => setAppearance({...appearance, skin: e.target.value})}
+                    className="w-full p-2 bg-slate-700 rounded-md text-sm"
+                  >
+                    {APPEARANCE_OPTIONS.skin.map((option) => (
+                      <option key={option} value={option}>{option}</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs mb-1">Hair</label>
+                  <select
+                    value={appearance.hair}
+                    onChange={(e) => setAppearance({...appearance, hair: e.target.value})}
+                    className="w-full p-2 bg-slate-700 rounded-md text-sm"
+                  >
+                    {APPEARANCE_OPTIONS.hair.map((option) => (
+                      <option key={option} value={option}>{option}</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs mb-1">Eyes</label>
+                  <select
+                    value={appearance.eyes}
+                    onChange={(e) => setAppearance({...appearance, eyes: e.target.value})}
+                    className="w-full p-2 bg-slate-700 rounded-md text-sm"
+                  >
+                    {APPEARANCE_OPTIONS.eyes.map((option) => (
+                      <option key={option} value={option}>{option}</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs mb-1">Outfit</label>
+                  <select
+                    value={appearance.outfit}
+                    onChange={(e) => setAppearance({...appearance, outfit: e.target.value})}
+                    className="w-full p-2 bg-slate-700 rounded-md text-sm"
+                  >
+                    {APPEARANCE_OPTIONS.outfit.map((option) => (
+                      <option key={option} value={option}>{option}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <div className="flex justify-between pt-2">
+              <button
+                type="button"
+                onClick={() => setShowCharacterCreation(false)}
+                className="px-4 py-2 bg-slate-600 hover:bg-slate-700 rounded-md transition-colors"
+              >
+                Back
+              </button>
+              
+              <button
+                type="submit"
+                className="px-4 py-2 bg-green-600 hover:bg-green-700 rounded-md transition-colors"
+              >
+                Create Character
+              </button>
+            </div>
+          </form>
+        </div>
+      </main>
+    );
+  }
+
+  // Registration form or login prompt
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-slate-900 text-white">
+      <div className="w-full max-w-md p-6 bg-slate-800 rounded-lg shadow-xl">
+        <h1 className="text-2xl font-bold mb-4 text-center">
+          {showRegistrationForm ? 'Create Account' : 'Welcome to RPG Adventure'}
+        </h1>
+        
+        {error && (
+          <div className="mb-4 p-3 bg-red-900 rounded-md text-white">
+            {error}
+          </div>
+        )}
+        
+        {showRegistrationForm ? (
+          <form onSubmit={handleRegister} className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium mb-1">Username</label>
+              <input
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+                className="w-full p-2 bg-slate-700 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              />
+            </div>
+            
+            <div className="flex justify-between pt-2">
+              <button
+                type="button"
+                onClick={() => setShowRegistrationForm(false)}
+                className="px-4 py-2 bg-slate-600 hover:bg-slate-700 rounded-md transition-colors"
+              >
+                Back
+              </button>
+              
+              <button
+                type="submit"
+                className="px-4 py-2 bg-green-600 hover:bg-green-700 rounded-md transition-colors"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+                Register
+              </button>
+            </div>
+          </form>
+        ) : (
+          <div className="space-y-4">
+            <p className="text-center">
+              Join the adventure in this multiplayer RPG powered by AI!
+            </p>
+            
+            <div className="flex flex-col space-y-3 pt-2">
+              <button
+                onClick={() => setShowRegistrationForm(true)}
+                className="w-full py-2 bg-blue-600 hover:bg-blue-700 rounded-md transition-colors"
+              >
+                Create Account
+              </button>
+              
+              {characters.length > 0 && (
+                <button
+                  onClick={() => {}}
+                  className="w-full py-2 bg-green-600 hover:bg-green-700 rounded-md transition-colors"
+                >
+                  Login with Existing Account
+                </button>
+              )}
+            </div>
+          </div>
+        )}
     </div>
+    </main>
   );
 }
