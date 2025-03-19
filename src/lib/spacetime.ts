@@ -55,7 +55,10 @@ export interface Session {
 // Environment variables - ensure these are defined before client initialization
 export const SPACETIME_SERVER = typeof process !== 'undefined' && process.env.NEXT_PUBLIC_SPACETIME_SERVER 
   ? process.env.NEXT_PUBLIC_SPACETIME_SERVER 
-  : 'http://127.0.0.1:3001';
+  : 'http://127.0.0.1:3000';
+
+// For WebSocket connections, we'll use the ws:// protocol
+export const SPACETIME_WS_SERVER = SPACETIME_SERVER.replace('http://', 'ws://');
 
 export const SPACETIME_MODULE = typeof process !== 'undefined' && process.env.NEXT_PUBLIC_SPACETIME_MODULE
   ? process.env.NEXT_PUBLIC_SPACETIME_MODULE

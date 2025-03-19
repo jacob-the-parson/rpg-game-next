@@ -1,145 +1,243 @@
-# RPG Game Next - Project Structure
+# Project Structure
 
-## Current Project Structure
+## Overview
+
+The RPG Game Next project follows a modern Next.js App Router architecture integrated with SpacetimeDB for real-time multiplayer functionality. This document outlines the project structure and organization.
+
+## Directory Structure
 
 ```
 rpg-game-next/
-├── app/                         # Next.js App Router pages
-│   └── game/                    # Game specific pages
-├── docs/                        # Documentation
-│   ├── apis/                    # API integration docs
-│   ├── architecture/            # System architecture docs
-│   ├── assets/                  # Asset documentation
-│   ├── engines/                 # Game engine docs
-│   ├── inspiration/             # Game design inspiration
-│   │   ├── concepts/            # Core game concepts
-│   │   ├── mechanics/           # Gameplay mechanics 
-│   │   ├── narrative/           # Story elements
-│   │   ├── references/          # External inspiration
-│   │   └── visuals/             # Visual design docs
-│   └── multiplayer/             # Multiplayer implementation
-├── public/                      # Static assets
-│   └── assets/                  # Game assets
-│       ├── characters/          # Character sprites
-│       │   ├── combat/          # Combat specific sprites
-│       │   ├── effects/         # Visual effects
-│       │   ├── npcs/            # NPC sprites
-│       │   └── player/          # Player character sprites
-│       ├── tilesets/            # Environment tiles
-│       │   ├── exterior/        # Outdoor environments
-│       │   └── interior/        # Indoor environments
-│       └── tools/               # Asset creation tools
-├── scripts/                     # Development scripts
-│   ├── deploy_backend.sh        # SpacetimeDB deployment
-│   ├── dev_setup.sh             # Development environment setup
-│   ├── run_spacetimedb.sh       # Local SpacetimeDB server
-│   └── start_dev.sh             # Development starter
-├── src/                         # Source code
-│   ├── app/                     # Next.js app router files
-│   ├── backend/                 # SpacetimeDB backend schema
-│   ├── components/              # React components
-│   │   └── Game/                # Game related components
-│   │       ├── entities/        # Game entities
-│   │       └── scenes/          # Game scenes
-│   ├── contexts/                # React contexts
-│   ├── game/                    # Game implementation
-│   │   ├── components/          # Game UI components
-│   │   ├── engine/              # Game engine integration
-│   │   ├── entities/            # Game entity definitions
-│   │   ├── scenes/              # Game scene definitions
-│   │   ├── systems/             # Game systems
-│   │   └── utils/               # Utility functions
-│   ├── lib/                     # Utility libraries
-│   └── types/                   # TypeScript type definitions
-└── [config files]               # Various configuration files
+├── app/                    # Next.js App Router directory
+│   ├── layout.tsx         # Root layout with providers
+│   ├── page.tsx           # Landing/Login page
+│   ├── game/              # Game routes
+│   │   ├── page.tsx      # Main game view
+│   │   └── layout.tsx    # Game layout with game providers
+│   └── character/         # Character management routes
+│       ├── create/       # Character creation
+│       └── select/       # Character selection
+├── src/
+│   ├── components/        # React components
+│   │   ├── auth/         # Authentication components
+│   │   ├── game/         # Game-specific components
+│   │   │   ├── entities/ # Game entities (Player, NPC, etc.)
+│   │   │   ├── ui/      # Game UI components
+│   │   │   └── world/   # World and map components
+│   │   └── shared/       # Shared/common components
+│   ├── lib/              # Core libraries and utilities
+│   │   ├── spacetime.ts  # SpacetimeDB service
+│   │   └── utils/        # Utility functions
+│   ├── hooks/            # Custom React hooks
+│   │   ├── useAuth.ts    # Authentication hooks
+│   │   ├── useGame.ts    # Game state hooks
+│   │   └── useCharacter.ts # Character management hooks
+│   └── types/            # TypeScript type definitions
+├── public/               # Static assets
+│   ├── assets/          # Game assets
+│   │   ├── characters/  # Character sprites
+│   │   ├── tiles/      # Map tiles
+│   │   └── ui/         # UI assets
+│   └── fonts/          # Custom fonts
+├── docs/                # Documentation
+│   ├── architecture/   # Architecture documentation
+│   ├── apis/          # API documentation
+│   └── troubleshooting/ # Troubleshooting guides
+├── scripts/            # Build and utility scripts
+└── rpg-game-module/    # SpacetimeDB module (Rust)
+    ├── src/           # Module source code
+    └── schema/        # Database schema
 ```
 
-## Asset Structure
+## Key Components
 
-```
-public/assets/
-├── characters/
-│   ├── npcs/                    # NPC character sprites
-│   │   ├── 16x16/               # Small NPC sprites
-│   │   ├── 32x32/               # Medium NPC sprites
-│   │   └── 48x48/               # Large NPC sprites
-│   ├── player/                  # Player character sprites
-│   │   ├── char_a_p1/           # Base character set
-│   │   │   ├── 1out/            # Outfit components
-│   │   │   ├── 4har/            # Hair components
-│   │   │   └── 5hat/            # Hat components
-│   │   └── guides/              # Animation timing guides
-│   └── combat/                  # Combat sprites
-│       ├── 100x100/             # Large combat sprites
-│       │   ├── base/            # Base combat animations
-│       │   └── shadows/         # Shadow effects
-│       └── base/                # Basic combat animations
-├── tilesets/
-│   ├── exterior/                # Outdoor environments
-│   │   ├── characters/          # Environment-specific characters
-│   │   ├── objects/             # Decorative objects
-│   │   ├── particles/           # Environmental effects
-│   │   └── tilesets/            # Terrain tiles
-│   │       ├── floors/          # Ground tiles
-│   │       └── walls/           # Wall tiles
-│   └── interior/                # Indoor environments
-│       ├── 16x16/               # Small interior tiles
-│       ├── 32x32/               # Medium interior tiles
-│       └── 48x48/               # Large interior tiles
-└── tools/                       # Asset creation tools
-    └── Character Generator/     # Character creation utility
+### 1. SpacetimeDB Integration
+
+#### Service Layer (`src/lib/spacetime.ts`)
+```typescript
+// Singleton service for SpacetimeDB operations
+export class SpacetimeService {
+  // Connection management
+  connect(): Promise<void>
+  disconnect(): void
+  
+  // Authentication
+  registerUser(username: string): void
+  login(identity: string): void
+  
+  // Character management
+  createCharacter(params: CharacterCreationParams): Promise<number>
+  getCharacters(): Promise<Character[]>
+}
 ```
 
-## Source Code Structure
-
-The source code is organized by feature and functionality:
-
-```
-src/
-├── app/                        # Next.js app router files
-│   ├── globals.css             # Global styles
-│   ├── layout.tsx              # Root layout component
-│   └── page.tsx                # Main page component
-├── backend/                    # SpacetimeDB backend schema
-├── components/                 # React components
-│   └── Game/                   # Game-specific components
-│       ├── index.tsx           # Main game component
-│       ├── engine.ts           # Excalibur engine setup
-│       ├── entities/           # Game entity components
-│       │   └── Player.ts       # Player entity
-│       └── scenes/             # Game scene components
-│           └── MainScene.ts    # Main game scene
-├── contexts/                   # React contexts for state management
-├── game/                       # Game implementation
-│   ├── components/             # Game UI components
-│   ├── engine/                 # Engine configuration
-│   ├── entities/               # Entity definitions
-│   ├── scenes/                 # Scene definitions
-│   ├── systems/                # Game systems (combat, inventory, etc.)
-│   └── utils/                  # Game utility functions
-├── lib/                        # Shared utility libraries
-│   └── spacetime.ts            # SpacetimeDB client setup
-└── types/                      # TypeScript type definitions
+#### Database Schema
+```sql
+-- Core game tables
+CREATE TABLE Users ( ... );
+CREATE TABLE Characters ( ... );
+CREATE TABLE Sessions ( ... );
 ```
 
-## Documentation Structure
+### 2. Authentication System
 
-The documentation is organized by category:
+#### Components
+- `src/components/auth/LoginForm.tsx`
+- `src/components/auth/RegisterForm.tsx`
+- `src/components/auth/AuthProvider.tsx`
 
+#### Hooks
+```typescript
+// src/hooks/useAuth.ts
+export const useAuth = () => {
+  const login = (username: string) => { ... }
+  const register = (username: string) => { ... }
+  const logout = () => { ... }
+  return { user, login, register, logout }
+}
 ```
-docs/
-├── README.md                   # Main documentation hub
-├── project-roadmap.md          # Development roadmap
-├── apis/                       # API integration documentation
-├── architecture/               # System architecture documentation
-│   └── project-structure.md    # This file
-├── assets/                     # Asset documentation
-├── engines/                    # Game engine documentation
-├── inspiration/                # Game design inspiration
-│   ├── concepts/               # Core game concepts
-│   ├── mechanics/              # Gameplay mechanics
-│   ├── narrative/              # Story elements
-│   ├── references/             # External inspiration
-│   └── visuals/                # Visual design docs
-└── multiplayer/                # Multiplayer implementation
-``` 
+
+### 3. Game Components
+
+#### Core Game Components
+- `src/components/game/GameCanvas.tsx`
+- `src/components/game/GameProvider.tsx`
+- `src/components/game/entities/Player.tsx`
+
+#### World Components
+- `src/components/game/world/Map.tsx`
+- `src/components/game/world/Tile.tsx`
+- `src/components/game/world/Collision.tsx`
+
+#### UI Components
+- `src/components/game/ui/HUD.tsx`
+- `src/components/game/ui/Inventory.tsx`
+- `src/components/game/ui/Chat.tsx`
+
+## State Management
+
+### 1. Authentication State
+```typescript
+interface AuthState {
+  user: User | null;
+  identity: string | null;
+  isLoading: boolean;
+  error: Error | null;
+}
+```
+
+### 2. Game State
+```typescript
+interface GameState {
+  player: Player;
+  characters: Character[];
+  worldState: WorldState;
+  inventory: InventoryItem[];
+}
+```
+
+### 3. Character State
+```typescript
+interface CharacterState {
+  selectedCharacter: Character | null;
+  characters: Character[];
+  isLoading: boolean;
+}
+```
+
+## Build Configuration
+
+### Next.js Configuration (`next.config.ts`)
+```typescript
+const nextConfig = {
+  reactStrictMode: true,
+  experimental: {
+    appDir: true,
+  },
+  // ... other config
+};
+```
+
+### Environment Variables
+```env
+NEXT_PUBLIC_USE_REAL_SPACETIMEDB=true
+NEXT_PUBLIC_SPACETIME_SERVER=http://127.0.0.1:3000
+NEXT_PUBLIC_SPACETIME_MODULE=rpg-game-next
+```
+
+## Development Workflow
+
+### 1. Local Development
+```bash
+# Start development server
+npm run dev
+
+# Start SpacetimeDB module
+cd rpg-game-module
+cargo run
+```
+
+### 2. Building for Production
+```bash
+# Build Next.js app
+npm run build
+
+# Build SpacetimeDB module
+cd rpg-game-module
+cargo build --release
+```
+
+### 3. Testing
+```bash
+# Run tests
+npm test
+
+# Run e2e tests
+npm run e2e
+```
+
+## Best Practices
+
+### 1. Component Organization
+- Keep components small and focused
+- Use TypeScript for all components
+- Follow React best practices
+- Implement proper error boundaries
+
+### 2. State Management
+- Use SpacetimeDB for shared state
+- Use React hooks for local state
+- Implement proper loading states
+- Handle errors gracefully
+
+### 3. Code Style
+- Follow TypeScript best practices
+- Use ESLint and Prettier
+- Write meaningful comments
+- Keep code DRY
+
+### 4. Performance
+- Optimize component renders
+- Implement proper memoization
+- Use proper loading strategies
+- Optimize asset loading
+
+## Future Considerations
+
+### 1. Scalability
+- Implement proper caching
+- Optimize database queries
+- Add connection pooling
+- Implement proper sharding
+
+### 2. Security
+- Add proper authentication
+- Implement rate limiting
+- Add input validation
+- Implement proper access control
+
+### 3. Monitoring
+- Add proper logging
+- Implement error tracking
+- Add performance monitoring
+- Set up alerting 

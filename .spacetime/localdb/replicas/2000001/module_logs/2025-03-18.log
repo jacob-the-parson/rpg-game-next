@@ -1,0 +1,17 @@
+{"level":"Info","ts":1742332768111440,"filename":"spacetimedb","message":"Creating table `character`"}
+{"level":"Info","ts":1742332768116843,"filename":"spacetimedb","message":"Creating table `character_appearance`"}
+{"level":"Info","ts":1742332768116902,"filename":"spacetimedb","message":"Creating table `session`"}
+{"level":"Info","ts":1742332768117254,"filename":"spacetimedb","message":"Creating table `user`"}
+{"level":"Info","ts":1742332768119381,"filename":"spacetimedb","message":"Database initialized"}
+{"level":"Info","ts":1742336669908663,"filename":"spacetimedb","message":"Updated program to a18a95a498d91089ecee948e7fa7f7e51f29bf2b178c21ff16e6fe918b126927"}
+{"level":"Info","ts":1742336669912094,"filename":"spacetimedb","message":"Database updated"}
+{"level":"Info","ts":1742336724550228,"target":"spacetime_module","filename":"src/lib.rs","line_number":51,"message":"Client connected: Identity(c2004f61c3e635825d016fe9831a96839918fea010be8a3921ad607251a14399)"}
+{"level":"Error","ts":1742336779574414,"filename":"external","message":"External attempt to call reducer \"register_user\" failed, invalid arguments.\nThis is likely due to a mismatched client schema, have you run `spacetime generate` recently?"}
+{"level":"Info","ts":1742336993847210,"filename":"spacetimedb","message":"Updated program to 2ab8cc9dfef07c418afd81cf4c0e77283d26f6d969187322bee9b6b2e1cd5ae6"}
+{"level":"Info","ts":1742336993847586,"filename":"spacetimedb","message":"Database updated"}
+{"level":"Info","ts":1742337035346167,"target":"spacetime_module","filename":"src/lib.rs","line_number":62,"message":"Client disconnected: Identity(c2004f61c3e635825d016fe9831a96839918fea010be8a3921ad607251a14399)"}
+{"level":"Info","ts":1742337036569698,"target":"spacetime_module","filename":"src/lib.rs","line_number":51,"message":"Client connected: Identity(c200f9ddfe948ee19ace77112d1056fc2139d5314198a8003e2f917ceafee13e)"}
+{"level":"Error","ts":1742337052049585,"filename":"external","message":"External attempt to call reducer \"register_user\" failed, invalid arguments.\nThis is likely due to a mismatched client schema, have you run `spacetime generate` recently?"}
+{"level":"Info","ts":1742337162108180,"target":"spacetime_module","filename":"src/lib.rs","line_number":62,"message":"Client disconnected: Identity(c200f9ddfe948ee19ace77112d1056fc2139d5314198a8003e2f917ceafee13e)"}
+{"level":"Info","ts":1742337163831134,"target":"spacetime_module","filename":"src/lib.rs","line_number":51,"message":"Client connected: Identity(c2000eb6f1528ecc2ae09ad192a4965a353831ecc017a44a65e275f8f5e22089)"}
+{"level":"Error","ts":1742337171595801,"filename":"external","message":"External attempt to call reducer \"register_user\" failed, invalid arguments.\nThis is likely due to a mismatched client schema, have you run `spacetime generate` recently?"}

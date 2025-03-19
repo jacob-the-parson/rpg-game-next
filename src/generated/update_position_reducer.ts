@@ -35,7 +35,6 @@ export type UpdatePosition = {
   characterId: bigint,
   x: number,
   y: number,
-  direction: string,
 };
 
 /**
@@ -48,10 +47,9 @@ export namespace UpdatePosition {
   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("characterId", AlgebraicType.createU64Type()),
+      new ProductTypeElement("characterId", AlgebraicType.createI64Type()),
       new ProductTypeElement("x", AlgebraicType.createF32Type()),
       new ProductTypeElement("y", AlgebraicType.createF32Type()),
-      new ProductTypeElement("direction", AlgebraicType.createStringType()),
     ]);
   }
 

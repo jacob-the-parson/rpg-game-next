@@ -32,10 +32,9 @@ import {
 } from "@clockworklabs/spacetimedb-sdk";
 export type CharacterAppearance = {
   characterId: bigint,
-  skin: string,
-  hair: string,
-  eyes: string,
-  outfit: string,
+  hairStyle: number,
+  hairColor: number,
+  skinColor: number,
 };
 
 /**
@@ -48,11 +47,10 @@ export namespace CharacterAppearance {
   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("characterId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("skin", AlgebraicType.createStringType()),
-      new ProductTypeElement("hair", AlgebraicType.createStringType()),
-      new ProductTypeElement("eyes", AlgebraicType.createStringType()),
-      new ProductTypeElement("outfit", AlgebraicType.createStringType()),
+      new ProductTypeElement("characterId", AlgebraicType.createI64Type()),
+      new ProductTypeElement("hairStyle", AlgebraicType.createI32Type()),
+      new ProductTypeElement("hairColor", AlgebraicType.createI32Type()),
+      new ProductTypeElement("skinColor", AlgebraicType.createI32Type()),
     ]);
   }
 

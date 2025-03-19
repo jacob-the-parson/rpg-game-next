@@ -33,11 +33,9 @@ import {
 
 export type CreateCharacter = {
   name: string,
-  characterClass: string,
-  skin: string,
-  hair: string,
-  eyes: string,
-  outfit: string,
+  hairStyle: number,
+  hairColor: number,
+  skinColor: number,
 };
 
 /**
@@ -51,11 +49,9 @@ export namespace CreateCharacter {
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
       new ProductTypeElement("name", AlgebraicType.createStringType()),
-      new ProductTypeElement("characterClass", AlgebraicType.createStringType()),
-      new ProductTypeElement("skin", AlgebraicType.createStringType()),
-      new ProductTypeElement("hair", AlgebraicType.createStringType()),
-      new ProductTypeElement("eyes", AlgebraicType.createStringType()),
-      new ProductTypeElement("outfit", AlgebraicType.createStringType()),
+      new ProductTypeElement("hairStyle", AlgebraicType.createI32Type()),
+      new ProductTypeElement("hairColor", AlgebraicType.createI32Type()),
+      new ProductTypeElement("skinColor", AlgebraicType.createI32Type()),
     ]);
   }
 

@@ -76,15 +76,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     const handleRegistered = () => {
       console.log("User registration successful, loading user data");
-      setIsLoading(false); // First clear the loading state
+      setIsLoading(false);
       
-      // Explicitly set authenticated state after registration in mock mode
-      if (process.env.NEXT_PUBLIC_USE_REAL_SPACETIMEDB === 'false') {
-        console.log("Mock mode: Setting authenticated state after registration");
-        setIsAuthenticated(true);
-      }
+      // After registration, set authenticated state
+      setIsAuthenticated(true);
       
-      loadUserData();
+      // Load user data and then show character selection
+      loadUserData().then(() => {
+        console.log("User data loaded after registration");
+        // The character selection screen will show automatically
+        // because we're handling the authenticated state in the main page
+      });
     };
 
     const handleCharacterCreated = () => {

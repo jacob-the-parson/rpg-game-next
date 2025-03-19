@@ -1,5 +1,6 @@
 import { ConnectionId, DbConnectionBuilder, Identity as SpacetimeIdentity } from '@clockworklabs/spacetimedb-sdk';
 import { SpacetimeService } from '@/lib/spacetime';
+import { SPACETIME_WS_SERVER } from '@/lib/spacetime';
 
 // Add a check for browser environment
 const isBrowser = typeof window !== 'undefined';
@@ -400,7 +401,7 @@ export const spacetimeDBSetup = {
       console.log(`🔶 Using mock SpacetimeDB service - would connect to ${moduleAddress}`);
       
       const connection = MockDbConnection.builder()
-        .withUri('http://127.0.0.1:3001')
+        .withUri('http://127.0.0.1:3000')
         .withModuleName(moduleAddress)
         .withToken('mock-token')
         .onConnect((conn, identity, token) => {
@@ -417,98 +418,59 @@ export const spacetimeDBSetup = {
       }
       
       console.log(`🟢 Connecting to real SpacetimeDB module: ${moduleAddress}`);
+      console.log(`🟢 Using WebSocket URL: ${SPACETIME_WS_SERVER}`);
       
-      // Wrap the entire process in a try/catch block
       try {
         // Step 1: Load the module
-        let module;
-        try {
-          module = await loadGeneratedModule();
-          if (!module) {
-            throw new Error('Failed to load generated module');
-          }
-        } catch (moduleError) {
-          console.error('🔴 Error loading SpacetimeDB generated module:', moduleError);
-          throw moduleError;
+        const module = await loadGeneratedModule();
+        if (!module) {
+          throw new Error('Failed to load generated module');
         }
         
-        // Step 2: Create the builder
-        let builder;
-        try {
-          console.log('🟢 Creating connection builder');
-          builder = module.DbConnection.builder();
-        } catch (builderError) {
-          console.error('🔴 Error creating connection builder:', builderError);
-          throw builderError;
-        }
-        
-        // Step 3: Configure the connection
-        const wsUrl = 'ws://127.0.0.1:3001';
+        // Ensure the URL uses the ws:// protocol
+        const wsUrl = SPACETIME_WS_SERVER.startsWith('ws://')
+          ? SPACETIME_WS_SERVER
+          : SPACETIME_WS_SERVER.replace('http://', 'ws://');
+          
         console.log(`🟢 Using WebSocket URL: ${wsUrl}`);
         
-        // Step 4: Build the connection object
-        let connectionBuilder;
-        try {
-          connectionBuilder = builder
-            .withUri(wsUrl)
-            .withModuleName(moduleAddress)
-            .onConnect((conn: any, identity: any, token: string) => {
-              console.log(`🟢 Connected to SpacetimeDB with identity: ${identity.toHexString()}`);
-              
-              // Log additional connection information
-              console.log('🟢 Connection object:', conn.constructor.name);
-              console.log('🟢 Identity:', identity);
-              console.log('🟢 Token:', token.substring(0, 10) + '...');
-              
-              // Store the identity in the SpacetimeService
-              const spacetimeService = SpacetimeService.getInstance();
-              spacetimeService.setIdentity(identity.toHexString());
-              
-              if (onConnect) {
-                try {
-                  console.log('🟢 Calling onConnect callback...');
-                  onConnect();
-                  console.log('🟢 onConnect callback completed successfully');
-                } catch (callbackError) {
-                  console.error('🔴 Error in onConnect callback:', callbackError);
-                }
-              } else {
-                console.log('🟠 No onConnect callback provided');
-              }
-            })
-            .onConnectError((err: Error) => {
-              console.error('🔴 SpacetimeDB connection error:', err);
-            });
-        } catch (configError) {
-          console.error('🔴 Error configuring connection:', configError);
-          throw configError;
-        }
-        
-        // Step 5: Build and return the connection
-        let connection;
-        try {
-          console.log('🟢 Building connection');
-          connection = connectionBuilder.build();
-          console.log('🟢 Connection built successfully:', connection.constructor.name);
-          return connection;
-        } catch (buildError) {
-          console.error('🔴 Error building connection:', buildError);
-          throw buildError;
-        }
-      } catch (error) {
-        console.error("🔴 Error building SpacetimeDB connection:", error);
-        console.log('🟡 Falling back to mock implementation');
-        
-        // Fall back to mock implementation
-        return MockDbConnection.builder()
-          .withUri('http://127.0.0.1:3001')
+        // Step 2: Create and configure the connection
+        const connection = module.DbConnection.builder()
+          .withUri(wsUrl)
           .withModuleName(moduleAddress)
-          .withToken('mock-token')
-          .onConnect((conn, identity, token) => {
-            console.log(`🔶 Mock connected with identity: ${identity.toHexString()}`);
-            if (onConnect) onConnect();
+          .onConnect((conn: any, identity: any, token: string) => {
+            console.log(`🟢 Connected to SpacetimeDB with identity: ${identity.toHexString()}`);
+            console.log('🟢 Connection details:', {
+              connectionType: conn.constructor.name,
+              moduleAddress,
+              identity: identity.toHexString(),
+              tokenPrefix: token.substring(0, 10) + '...'
+            });
+            
+            // Store the identity
+            SpacetimeService.getInstance().setIdentity(identity.toHexString());
+            
+            if (onConnect) {
+              onConnect();
+            }
+          })
+          .onConnectError((err: Error) => {
+            console.error('🔴 SpacetimeDB connection error:', err);
+            // Optionally dispatch an error event here
+            window.dispatchEvent(new CustomEvent('spacetimedb-error', { 
+              detail: { error: err }
+            }));
+          })
+          .onDisconnect(() => {
+            console.log('🟡 Disconnected from SpacetimeDB');
+            window.dispatchEvent(new CustomEvent('spacetimedb-disconnected'));
           })
           .build();
+          
+        return connection;
+      } catch (error) {
+        console.error("🔴 Error building SpacetimeDB connection:", error);
+        throw error; // Let the caller handle the error
       }
     }
   },

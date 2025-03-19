@@ -31,10 +31,8 @@ import {
   deepEqual,
 } from "@clockworklabs/spacetimedb-sdk";
 export type Session = {
-  identity: string,
-  characterId: bigint,
+  identity: Identity,
   connectedAt: bigint,
-  lastActivity: bigint,
 };
 
 /**
@@ -47,10 +45,8 @@ export namespace Session {
   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("identity", AlgebraicType.createStringType()),
-      new ProductTypeElement("characterId", AlgebraicType.createU64Type()),
-      new ProductTypeElement("connectedAt", AlgebraicType.createU64Type()),
-      new ProductTypeElement("lastActivity", AlgebraicType.createU64Type()),
+      new ProductTypeElement("identity", AlgebraicType.createIdentityType()),
+      new ProductTypeElement("connectedAt", AlgebraicType.createI64Type()),
     ]);
   }
 

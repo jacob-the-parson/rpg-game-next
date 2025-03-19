@@ -32,15 +32,11 @@ import {
 } from "@clockworklabs/spacetimedb-sdk";
 export type Character = {
   id: bigint,
-  userIdentity: string,
+  userIdentity: Identity,
   name: string,
-  class: string,
-  level: number,
-  positionX: number,
-  positionY: number,
-  direction: string,
+  x: number,
+  y: number,
   createdAt: bigint,
-  lastUpdated: bigint,
 };
 
 /**
@@ -53,16 +49,12 @@ export namespace Character {
   */
   export function getTypeScriptAlgebraicType(): AlgebraicType {
     return AlgebraicType.createProductType([
-      new ProductTypeElement("id", AlgebraicType.createU64Type()),
-      new ProductTypeElement("userIdentity", AlgebraicType.createStringType()),
+      new ProductTypeElement("id", AlgebraicType.createI64Type()),
+      new ProductTypeElement("userIdentity", AlgebraicType.createIdentityType()),
       new ProductTypeElement("name", AlgebraicType.createStringType()),
-      new ProductTypeElement("class", AlgebraicType.createStringType()),
-      new ProductTypeElement("level", AlgebraicType.createU32Type()),
-      new ProductTypeElement("positionX", AlgebraicType.createF32Type()),
-      new ProductTypeElement("positionY", AlgebraicType.createF32Type()),
-      new ProductTypeElement("direction", AlgebraicType.createStringType()),
-      new ProductTypeElement("createdAt", AlgebraicType.createU64Type()),
-      new ProductTypeElement("lastUpdated", AlgebraicType.createU64Type()),
+      new ProductTypeElement("x", AlgebraicType.createF32Type()),
+      new ProductTypeElement("y", AlgebraicType.createF32Type()),
+      new ProductTypeElement("createdAt", AlgebraicType.createI64Type()),
     ]);
   }
 

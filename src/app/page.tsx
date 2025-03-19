@@ -344,6 +344,91 @@ export default function Home() {
     );
   }
 
+  // Welcome screen (not authenticated)
+  if (!isAuthenticated && !showRegistrationForm) {
+    return (
+      <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-slate-900 text-white">
+        <div className="w-full max-w-md p-6 bg-slate-800 rounded-lg shadow-xl">
+          <h1 className="text-2xl font-bold mb-4 text-center">Welcome to RPG Adventure</h1>
+          <p className="text-center mb-8">Join the adventure in this multiplayer RPG powered by AI!</p>
+          
+          {error && (
+            <div className="mb-4 p-3 bg-red-900 rounded-md text-white">
+              {error}
+            </div>
+          )}
+
+          <div className="flex flex-col gap-4">
+            <button 
+              onClick={() => setShowRegistrationForm(true)}
+              className="w-full px-4 py-3 bg-blue-600 hover:bg-blue-700 rounded-md transition-colors text-lg font-semibold"
+            >
+              Create Account
+            </button>
+            
+            <button 
+              onClick={() => {
+                // Use the register function with an empty string to trigger login flow
+                register("");
+              }}
+              className="w-full px-4 py-3 bg-green-600 hover:bg-green-700 rounded-md transition-colors text-lg font-semibold"
+            >
+              Login
+            </button>
+          </div>
+        </div>
+      </main>
+    );
+  }
+
+  // Registration form
+  if (!isAuthenticated && showRegistrationForm) {
+    return (
+      <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-slate-900 text-white">
+        <div className="w-full max-w-md p-6 bg-slate-800 rounded-lg shadow-xl">
+          <h1 className="text-2xl font-bold mb-4 text-center">Create Account</h1>
+          
+          {error && (
+            <div className="mb-4 p-3 bg-red-900 rounded-md text-white">
+              {error}
+            </div>
+          )}
+          
+          <form onSubmit={handleRegister} className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium mb-1">Username</label>
+              <input
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+                className="w-full p-2 bg-slate-700 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                placeholder="Enter your username"
+              />
+            </div>
+            
+            <div className="flex justify-between">
+              <button
+                type="button"
+                onClick={() => setShowRegistrationForm(false)}
+                className="px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded-md transition-colors"
+              >
+                Back
+              </button>
+              
+              <button
+                type="submit"
+                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-md transition-colors"
+              >
+                Create Account
+              </button>
+            </div>
+          </form>
+        </div>
+      </main>
+    );
+  }
+
   // Registration form or login prompt
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-slate-900 text-white">

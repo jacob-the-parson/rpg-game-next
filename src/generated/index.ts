@@ -34,10 +34,12 @@ import {
 // Import and reexport all reducer arg types
 import { CreateCharacter } from "./create_character_reducer.ts";
 export { CreateCharacter };
-import { IdentityConnected } from "./identity_connected_reducer.ts";
-export { IdentityConnected };
-import { IdentityDisconnected } from "./identity_disconnected_reducer.ts";
-export { IdentityDisconnected };
+import { Init } from "./init_reducer.ts";
+export { Init };
+import { OnClientConnect } from "./on_client_connect_reducer.ts";
+export { OnClientConnect };
+import { OnClientDisconnect } from "./on_client_disconnect_reducer.ts";
+export { OnClientDisconnect };
 import { RegisterUser } from "./register_user_reducer.ts";
 export { RegisterUser };
 import { UpdatePosition } from "./update_position_reducer.ts";
@@ -48,8 +50,6 @@ import { CharacterTableHandle } from "./character_table.ts";
 export { CharacterTableHandle };
 import { CharacterAppearanceTableHandle } from "./character_appearance_table.ts";
 export { CharacterAppearanceTableHandle };
-import { CounterTableHandle } from "./counter_table.ts";
-export { CounterTableHandle };
 import { SessionTableHandle } from "./session_table.ts";
 export { SessionTableHandle };
 import { UserTableHandle } from "./user_table.ts";
@@ -60,8 +60,6 @@ import { Character } from "./character_type.ts";
 export { Character };
 import { CharacterAppearance } from "./character_appearance_type.ts";
 export { CharacterAppearance };
-import { Counter } from "./counter_type.ts";
-export { Counter };
 import { Session } from "./session_type.ts";
 export { Session };
 import { User } from "./user_type.ts";
@@ -79,11 +77,6 @@ const REMOTE_MODULE = {
       rowType: CharacterAppearance.getTypeScriptAlgebraicType(),
       primaryKey: "character_id",
     },
-    counter: {
-      tableName: "counter",
-      rowType: Counter.getTypeScriptAlgebraicType(),
-      primaryKey: "name",
-    },
     session: {
       tableName: "session",
       rowType: Session.getTypeScriptAlgebraicType(),
@@ -100,13 +93,17 @@ const REMOTE_MODULE = {
       reducerName: "create_character",
       argsType: CreateCharacter.getTypeScriptAlgebraicType(),
     },
-    identity_connected: {
-      reducerName: "identity_connected",
-      argsType: IdentityConnected.getTypeScriptAlgebraicType(),
+    init: {
+      reducerName: "init",
+      argsType: Init.getTypeScriptAlgebraicType(),
     },
-    identity_disconnected: {
-      reducerName: "identity_disconnected",
-      argsType: IdentityDisconnected.getTypeScriptAlgebraicType(),
+    on_client_connect: {
+      reducerName: "on_client_connect",
+      argsType: OnClientConnect.getTypeScriptAlgebraicType(),
+    },
+    on_client_disconnect: {
+      reducerName: "on_client_disconnect",
+      argsType: OnClientDisconnect.getTypeScriptAlgebraicType(),
     },
     register_user: {
       reducerName: "register_user",
@@ -144,8 +141,9 @@ const REMOTE_MODULE = {
 // A type representing all the possible variants of a reducer.
 export type Reducer = never
 | { name: "CreateCharacter", args: CreateCharacter }
-| { name: "IdentityConnected", args: IdentityConnected }
-| { name: "IdentityDisconnected", args: IdentityDisconnected }
+| { name: "Init", args: Init }
+| { name: "OnClientConnect", args: OnClientConnect }
+| { name: "OnClientDisconnect", args: OnClientDisconnect }
 | { name: "RegisterUser", args: RegisterUser }
 | { name: "UpdatePosition", args: UpdatePosition }
 ;
@@ -153,36 +151,48 @@ export type Reducer = never
 export class RemoteReducers {
   constructor(private connection: DbConnectionImpl, private setCallReducerFlags: SetReducerFlags) {}
 
-  createCharacter(name: string, characterClass: string, skin: string, hair: string, eyes: string, outfit: string) {
-    const __args = { name, characterClass, skin, hair, eyes, outfit };
+  createCharacter(name: string, hairStyle: number, hairColor: number, skinColor: number) {
+    const __args = { name, hairStyle, hairColor, skinColor };
     let __writer = new BinaryWriter(1024);
     CreateCharacter.getTypeScriptAlgebraicType().serialize(__writer, __args);
     let __argsBuffer = __writer.getBuffer();
     this.connection.callReducer("create_character", __argsBuffer, this.setCallReducerFlags.createCharacterFlags);
   }
 
-  onCreateCharacter(callback: (ctx: ReducerEventContext, name: string, characterClass: string, skin: string, hair: string, eyes: string, outfit: string) => void) {
+  onCreateCharacter(callback: (ctx: ReducerEventContext, name: string, hairStyle: number, hairColor: number, skinColor: number) => void) {
     this.connection.onReducer("create_character", callback);
   }
 
-  removeOnCreateCharacter(callback: (ctx: ReducerEventContext, name: string, characterClass: string, skin: string, hair: string, eyes: string, outfit: string) => void) {
+  removeOnCreateCharacter(callback: (ctx: ReducerEventContext, name: string, hairStyle: number, hairColor: number, skinColor: number) => void) {
     this.connection.offReducer("create_character", callback);
   }
 
-  onIdentityConnected(callback: (ctx: ReducerEventContext) => void) {
-    this.connection.onReducer("identity_connected", callback);
+  init() {
+    this.connection.callReducer("init", new Uint8Array(0), this.setCallReducerFlags.initFlags);
   }
 
-  removeOnIdentityConnected(callback: (ctx: ReducerEventContext) => void) {
-    this.connection.offReducer("identity_connected", callback);
+  onInit(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer("init", callback);
   }
 
-  onIdentityDisconnected(callback: (ctx: ReducerEventContext) => void) {
-    this.connection.onReducer("identity_disconnected", callback);
+  removeOnInit(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer("init", callback);
   }
 
-  removeOnIdentityDisconnected(callback: (ctx: ReducerEventContext) => void) {
-    this.connection.offReducer("identity_disconnected", callback);
+  onOnClientConnect(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer("on_client_connect", callback);
+  }
+
+  removeOnOnClientConnect(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer("on_client_connect", callback);
+  }
+
+  onOnClientDisconnect(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.onReducer("on_client_disconnect", callback);
+  }
+
+  removeOnOnClientDisconnect(callback: (ctx: ReducerEventContext) => void) {
+    this.connection.offReducer("on_client_disconnect", callback);
   }
 
   registerUser(username: string) {
@@ -201,19 +211,19 @@ export class RemoteReducers {
     this.connection.offReducer("register_user", callback);
   }
 
-  updatePosition(characterId: bigint, x: number, y: number, direction: string) {
-    const __args = { characterId, x, y, direction };
+  updatePosition(characterId: bigint, x: number, y: number) {
+    const __args = { characterId, x, y };
     let __writer = new BinaryWriter(1024);
     UpdatePosition.getTypeScriptAlgebraicType().serialize(__writer, __args);
     let __argsBuffer = __writer.getBuffer();
     this.connection.callReducer("update_position", __argsBuffer, this.setCallReducerFlags.updatePositionFlags);
   }
 
-  onUpdatePosition(callback: (ctx: ReducerEventContext, characterId: bigint, x: number, y: number, direction: string) => void) {
+  onUpdatePosition(callback: (ctx: ReducerEventContext, characterId: bigint, x: number, y: number) => void) {
     this.connection.onReducer("update_position", callback);
   }
 
-  removeOnUpdatePosition(callback: (ctx: ReducerEventContext, characterId: bigint, x: number, y: number, direction: string) => void) {
+  removeOnUpdatePosition(callback: (ctx: ReducerEventContext, characterId: bigint, x: number, y: number) => void) {
     this.connection.offReducer("update_position", callback);
   }
 
@@ -223,6 +233,11 @@ export class SetReducerFlags {
   createCharacterFlags: CallReducerFlags = 'FullUpdate';
   createCharacter(flags: CallReducerFlags) {
     this.createCharacterFlags = flags;
+  }
+
+  initFlags: CallReducerFlags = 'FullUpdate';
+  init(flags: CallReducerFlags) {
+    this.initFlags = flags;
   }
 
   registerUserFlags: CallReducerFlags = 'FullUpdate';
@@ -246,10 +261,6 @@ export class RemoteTables {
 
   get characterAppearance(): CharacterAppearanceTableHandle {
     return new CharacterAppearanceTableHandle(this.connection.clientCache.getOrCreateTable<CharacterAppearance>(REMOTE_MODULE.tables.character_appearance));
-  }
-
-  get counter(): CounterTableHandle {
-    return new CounterTableHandle(this.connection.clientCache.getOrCreateTable<Counter>(REMOTE_MODULE.tables.counter));
   }
 
   get session(): SessionTableHandle {
